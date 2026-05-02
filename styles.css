@@ -9,6 +9,8 @@ body {
     background-color: #ffffff;
     color: #172b4d;
     line-height: 1.5;
+    overflow: hidden;
+    height: 100vh;
 }
 
 /* Layout with sidebar */
