@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jira Clone - Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <path d="M18.5,9C17.12,9 16,10.12 16,11.5V15H21.5V11.5C21.5,9.57 19.93,8 18,8C17.72,8 17.45,8.03 17.19,8.09C17.65,9.39 18.5,10.5 18.5,10.5V9M20.5,13V16.5C20.5,18.43 18.93,20 17,20C15.49,20 14.23,18.96 13.64,17.55C13.36,17.94 13,18.28 12.5,18.5V22H9.5V18.5C9,18.28 8.64,17.94 8.36,17.55C7.77,18.96 6.51,20 5,20C3.07,20 1.5,18.43 1.5,16.5V13H7V15.5C7,16.9 8.1,18 9.5,18C11.43,18 13,16.43 13,14.5V11C13,9.07 11.43,7.5 9.5,7.5C8.1,7.5 7,8.6 7,10V7H2.5V10.5C2.5,12.43 4.07,14 6,14C7.38,14 8.5,12.88 8.5,11.5V9H6.5V13H20.5Z" />
+            </svg>
+            JiraClone
+        </div>
+
+        <div class="search-bar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b778c" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" placeholder="Search issues...">
+        </div>
+
+        <div class="user-menu">
+            <div class="user-avatar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <path d="M18 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            <span>John Smith</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M18.5,9C17.12,9 16,10.12 16,11.5V15H21.5V11.5C21.5,9.57 19.93,8 18,8C17.72,8 17.45,8.03 17.19,8.09C17.65,9.39 18.5,10.5 18.5,10.5V9M20.5,13V16.5C20.5,18.43 18.93,20 17,20C15.49,20 14.23,18.96 13.64,17.55C13.36,17.94 13,18.28 12.5,18.5V22H9.5V18.5C9,18.28 8.64,17.94 8.36,17.55C7.77,18.96 6.51,20 5,20C3.07,20 1.5,18.43 1.5,16.5V13H7V15.5C7,16.9 8.1,18 9.5,18C11.43,18 13,16.43 13,14.5V11C13,9.07 11.43,7.5 9.5,7.5C8.1,7.5 7,8.6 7,10V7H2.5V10.5C2.5,12.43 4.07,14 6,14C7.38,14 8.5,12.88 8.5,11.5V9H6.5V13H20.5Z" />
+                    </svg>
+                    JiraClone
+                </a>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="sidebar-section-title">Система</li>
+
+                <li class="sidebar-menu-item active" onclick="navigateTo('dashboard')">
+                    <span class="sidebar-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </span>
+                    Dashboard
+                </li>
+
+                <li class="sidebar-menu-item" onclick="navigateTo('boards')">
+                    <span class="sidebar-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="18"></rect>
+                            <rect x="14" y="3" width="7" height="6"></rect>
+                            <rect x="14" y="11" width="7" height="10"></rect>
+                        </svg>
+                    </span>
+                    Boards
+                </li>
+
+                <li class="sidebar-menu-item" onclick="navigateTo('issues')">
+                    <span class="sidebar-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </span>
+                    Issues
+                </li>
+
+                <li class="sidebar-menu-item" onclick="navigateTo('calendar')">
+                    <span class="sidebar-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </span>
+                    Calendar
+                </li>
+
+                <li class="sidebar-menu-item" onclick="navigateTo('reports')">
+                    <span class="sidebar-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </span>
+                    Reports
+                </li>
+
+                <li class="sidebar-section-title">Проекты</li>
+
+                <li class="sidebar-menu-item" onclick="navigateTo('projects')">
+                    <span class="sidebar-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 19a-2 2 0 0 0-2-2H4a-2 2 0 0 0-2 2v5a-2 2 0 0 0 2 2h16a-2 2 0 0 0 2-2v-5z"></path>
+                            <path d="M22 3H2a-2 2 0 0 0-2 2v5a-2 2 0 0 0 2 2h16a-2 2 0 0 0 2-2V5a-2 2 0 0 0-2-2z"></path>
+                            <line x1="2" y1="8" x2="22" y2="8"></line>
+                        </svg>
+                    </span>
+                    All Projects
+                </li>
+
+                <li class="sidebar-menu-item" onclick="navigateTo('project-details')">
+                    <span class="sidebar-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-2H5a2 2 0 0 0-2 2z"></path>
+                        </svg>
+                    </span>
+                    Website Redesign
+                </li>
+
+                <li class="sidebar-menu-item" onclick="navigateTo('project-settings')">
+                    <span class="sidebar-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                    </span>
+                    Project Settings
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-help">
+                    <p class="sidebar-help-title">Need help?</p>
+                    <a href="#" class="sidebar-help-link">Jira Help Center</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Board -->
+        <div class="board-container">
+            <div class="board-header">
+                <div class="board-title">
+                    <h1>Kanban Board</h1>
+                    <p class="board-subtitle">Project: Website Redesign &bull; Sprint 3</p>
+                </div>
+
+                <div class="board-actions">
+                    <button class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#42526e" stroke-width="2">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="19" cy="12" r="1"></circle>
+                            <circle cx="5" cy="12" r="1"></circle>
+                        </svg>
+                        More
+                    </button>
+
+                    <button class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Create Issue
+                    </button>
+                </div>
+            </div>
+
+            <div class="board-columns">
+                <!-- QA Column -->
+                <div class="column">
+                    <div class="column-header">
+                        <span>QA</span>
+                        <span class="column-count">3</span>
+                    </div>
+                    <div class="column-tasks">
+                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-11')" ondragstart="dragStart(event)">
+                            <div class="labels">
+                                <span class="label">Testing</span>
+                            </div>
+                            <div class="task-header">
+                                <span class="task-key">ISSUE-11</span>
+                                <span class="task-type">Task</span>
+                            </div>
+                            <div class="task-title">Write unit tests for user authentication module</div>
+                            <div class="task-meta">
+                                <div class="meta-item priority-medium">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffb74d">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-13')" ondragstart="dragStart(event)">
+                            <div class="labels">
+                                <span class="label">Documentation</span>
+                            </div>
+                            <div class="task-header">
+                                <span class="task-key">ISSUE-13</span>
+                                <span class="task-type">Task</span>
+                            </div>
+                            <div class="task-title">Update README with new features</div>
+                            <div class="task-meta">
+                                <div class="meta-item priority-low">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#90a4ae">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-14')" ondragstart="dragStart(event)">
+                            <div class="labels">
+                                <span class="label">Bug</span>
+                                <span class="label">Frontend</span>
+                            </div>
+                            <div class="task-header">
+                                <span class="task-key">ISSUE-14</span>
+                                <span class="task-type">Bug</span>
+                            </div>
+                            <div class="task-title">Fix responsive layout on tablet devices</div>
+                            <div class="task-meta">
+                                <div class="meta-item priority-medium">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffb74d">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Done Column -->
+                <div class="column">
+                    <div class="column-header">
+                        <span>Done</span>
+                        <span class="column-count">5</span>
+                    </div>
+                    <div class="column-tasks">
+                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-15')" ondragstart="dragStart(event)">
+                            <div class="labels">
+                                <span class="label">Feature</span>
+                            </div>
+                            <div class="task-header">
+                                <span class="task-key">ISSUE-15</span>
+                                <span class="task-type">Story</span>
+                            </div>
+                            <div class="task-title">Implement user dashboard</div>
+                            <div class="status status-done">Completed</div>
+                        </div>
+
+                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-16')" ondragstart="dragStart(event)">
+                            <div class="labels">
+                                <span class="label">Refactoring</span>
+                            </div>
+                            <div class="task-header">
+                                <span class="task-key">ISSUE-16</span>
+                                <span class="task-type">Task</span>
+                            </div>
+                            <div class="task-title">Clean up CSS architecture</div>
+                            <div class="status status-done">Completed</div>
+                        </div>
+
+                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-17')" ondragstart="dragStart(event)">
+                            <div class="labels">
+                                <span class="label">Security</span>
+                            </div>
+                            <div class="task-header">
+                                <span class="task-key">ISSUE-17</span>
+                                <span class="task-type">Task</span>
+                            </div>
+                            <div class="task-title">Update SSL certificates</div>
+                            <div class="status status-done">Completed</div>
+                        </div>
+
+                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-18')" ondragstart="dragStart(event)">
+                            <div class="labels">
+                                <span class="label">Backend</span>
+                            </div>
+                            <div class="task-header">
+                                <span class="task-key">ISSUE-18</span>
+                                <span class="task-type">Task</span>
+                            </div>
+                            <div class="task-title">Migrate database to PostgreSQL</div>
+                            <div class="status status-done">Completed</div>
+                        </div>
+
+                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-19')" ondragstart="dragStart(event)">
+                            <div class="labels">
+                                <span class="label">Frontend</span>
+                            </div>
+                            <div class="task-header">
+                                <span class="task-key">ISSUE-19</span>
+                                <span class="task-type">Story</span>
+                            </div>
+                            <div class="task-title">Redesign home page hero section</div>
+                            <div class="status status-done">Completed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="issueModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Issue Details</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="issueForm">
+                    <div class="form-group">
+                        <label class="form-label" for="issueKey">Issue Key</label>
+                        <input type="text" id="issueKey" class="form-input" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="issueTitle">Summary</label>
+                        <input type="text" id="issueTitle" class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="issueType">Issue Type</label>
+                        <select id="issueType" class="form-input">
+                            <option value="Story">Story</option>
+                            <option value="Task">Task</option>
+                            <option value="Bug">Bug</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="issuePriority">Priority</label>
+                        <select id="issuePriority" class="form-input">
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="issueAssignee">Assignee</label>
+                        <input type="text" id="issueAssignee" class="form-input" placeholder="Assign to...">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="issueLabels">Labels (comma separated)</label>
+                        <input type="text" id="issueLabels" class="form-input" placeholder="e.g., Frontend, Bug">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="issueDescription">Description</label>
+                        <textarea id="issueDescription" class="form-input" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="issueStatus">Status</label>
+                        <select id="issueStatus" class="form-input">
+                            <option value="To Do">To Do</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Code Review">Code Review</option>
+                            <option value="QA">QA</option>
+                            <option value="Done">Done</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveIssue()">Save Issue</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentIssue = null;
+        const issues = {};
+
+        function openModal(issueKey) {
+            const modal = document.getElementById('issueModal');
+
+            if (!issues[issueKey]) {
+                issues[issueKey] = {
+                    key: issueKey,
+                    title: `Issue ${issueKey} - Title`,
+                    type: 'Task',
+                    priority: 'Medium',
+                    assignee: 'Unassigned',
+                    labels: [],
+                    description: '',
+                    status: 'To Do'
+                };
+            }
+
+            currentIssue = issues[issueKey];
+
+            document.getElementById('issueKey').value = currentIssue.key;
+            document.getElementById('issueTitle').value = currentIssue.title;
+            document.getElementById('issueType').value = currentIssue.type;
+            document.getElementById('issuePriority').value = currentIssue.priority;
+            document.getElementById('issueAssignee').value = currentIssue.assignee;
+            document.getElementById('issueLabels').value = currentIssue.labels.join(', ');
+            document.getElementById('issueDescription').value = currentIssue.description;
+            document.getElementById('issueStatus').value = currentIssue.status;
+
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('issueModal').style.display = 'none';
+            currentIssue = null;
+        }
+
+        function saveIssue() {
+            if (currentIssue) {
+                currentIssue.title = document.getElementById('issueTitle').value;
+                currentIssue.type = document.getElementById('issueType').value;
+                currentIssue.priority = document.getElementById('issuePriority').value;
+                currentIssue.assignee = document.getElementById('issueAssignee').value;
+                currentIssue.labels = document.getElementById('issueLabels').value.split(',').map(l => l.trim()).filter(l => l);
+                currentIssue.description = document.getElementById('issueDescription').value;
+                currentIssue.status = document.getElementById('issueStatus').value;
+
+                console.log('Updated issue:', currentIssue);
+                closeModal();
+            }
+        }
+
+        document.getElementById('issueModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.querySelector('.search-bar input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                console.log('Search:', this.value);
+            }
+        });
+
+        // Drag and Drop
+        let draggedItem = null;
+
+        function dragStart(event) {
+            draggedItem = event.target;
+            event.target.classList.add('dragging');
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/plain', event.target.getAttribute('onclick'));
+
+            setTimeout(() => {
+                event.target.style.opacity = '0.5';
+            }, 0);
+        }
+
+        const columnTasksContainers = document.querySelectorAll('.column-tasks');
+
+        columnTasksContainers.forEach(container => {
+            container.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+
+                const afterElement = getDragAfterElement(container, e.clientY);
+                const draggable = document.querySelector('.dragging');
+
+                if (afterElement == null) {
+                    container.appendChild(draggable);
+                } else {
+                    container.insertBefore(draggable, afterElement);
+                }
+            });
+
+            container.addEventListener('dragenter', function(e) {
+                e.preventDefault();
+                if (e.target.classList.contains('column-tasks')) {
+                    container.style.backgroundColor = '#e0e5eb';
+                }
+            });
+
+            container.addEventListener('dragleave', function(e) {
+                if (!container.contains(e.relatedTarget)) {
+                    container.style.backgroundColor = '';
+                }
+            });
+
+            container.addEventListener('drop', function(e) {
+                e.preventDefault();
+                container.style.backgroundColor = '';
+
+                if (draggedItem && draggedItem.parentNode === container) {
+                    const afterElement = getDragAfterElement(container, e.clientY);
+
+                    if (afterElement == null) {
+                        if (draggedItem !== container.lastElementChild) {
+                            container.appendChild(draggedItem);
+                        }
+                    } else if (draggedItem !== afterElement.previousElementSibling) {
+                        container.insertBefore(draggedItem, afterElement);
+                    }
+
+                    draggedItem.classList.remove('dragging');
+                    draggedItem.style.opacity = '';
+                    draggedItem = null;
+                } else if (draggedItem && draggedItem.parentNode !== container) {
+                    const afterElement = getDragAfterElement(container, e.clientY);
+
+                    if (afterElement == null) {
+                        container.appendChild(draggedItem);
+                    } else {
+                        container.insertBefore(draggedItem, afterElement);
+                    }
+
+                    draggedItem.classList.remove('dragging');
+                    draggedItem.style.opacity = '';
+                    draggedItem = null;
+                }
+            });
+        });
+
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.task-card:not(.dragging)')];
+
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        document.addEventListener('dragend', function(e) {
+            if (e.target.classList.contains('task-card')) {
+                e.target.classList.remove('dragging');
+                e.target.style.opacity = '';
+            }
+        });
+    </script>
+</body>
+</html>
