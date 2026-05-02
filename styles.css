@@ -502,3 +502,193 @@ header {
     text-decoration: underline;
 }
 
+/* Header right group */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.icon-moon { display: none; }
+.icon-sun { display: block; }
+
+.dark-theme .icon-moon { display: block; }
+.dark-theme .icon-sun { display: none; }
+
+/* Dark theme */
+.dark-theme {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+.dark-theme .sidebar {
+    background-color: #16213e;
+    color: #e0e0e0;
+    border-right-color: #2a2a4a;
+}
+
+.dark-theme .sidebar-section-title {
+    color: #8892a4;
+}
+
+.dark-theme .sidebar-menu-item {
+    color: #b0b8c8;
+}
+
+.dark-theme .sidebar-menu-item:hover {
+    background-color: #1f2f50;
+    color: #e0e0e0;
+}
+
+.dark-theme .sidebar-menu-item.active {
+    background-color: #1a3a6e;
+    color: #5b9cf6;
+}
+
+.dark-theme .sidebar-menu-item.active .sidebar-icon {
+    color: #5b9cf6;
+}
+
+.dark-theme .sidebar-icon {
+    color: #8892a4;
+}
+
+.dark-theme .sidebar-footer {
+    border-top-color: #2a2a4a;
+}
+
+.dark-theme header {
+    background-color: #0f1a2e;
+}
+
+.dark-theme .sidebar-header {
+    background-color: #0f1a2e;
+}
+
+.dark-theme .search-bar {
+    background-color: #2a2a4a;
+}
+
+.dark-theme .search-bar input {
+    color: #e0e0e0;
+}
+
+.dark-theme .board-title h1 {
+    color: #e0e0e0;
+}
+
+.dark-theme .board-subtitle {
+    color: #8892a4;
+}
+
+.dark-theme .column {
+    background-color: #16213e;
+}
+
+.dark-theme .column-header {
+    background-color: #1a2744;
+    color: #e0e0e0;
+}
+
+.dark-theme .column-count {
+    background-color: #2a3a5c;
+    color: #b0b8c8;
+}
+
+.dark-theme .task-card {
+    background-color: #1e2a45;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .task-card:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .task-key {
+    color: #8892a4;
+}
+
+.dark-theme .task-type {
+    background-color: #2a3a5c;
+    color: #8892a4;
+}
+
+.dark-theme .task-title {
+    color: #e0e0e0;
+}
+
+.dark-theme .task-meta {
+    color: #8892a4;
+    border-top-color: #2a2a4a;
+}
+
+.dark-theme .label {
+    background-color: #2a3a5c;
+    color: #b0b8c8;
+}
+
+.dark-theme .modal {
+    background-color: #1e2a45;
+}
+
+.dark-theme .modal-header {
+    border-bottom-color: #2a2a4a;
+}
+
+.dark-theme .modal-title {
+    color: #e0e0e0;
+}
+
+.dark-theme .close-btn {
+    color: #8892a4;
+}
+
+.dark-theme .modal-footer {
+    border-top-color: #2a2a4a;
+}
+
+.dark-theme .form-label {
+    color: #b0b8c8;
+}
+
+.dark-theme .form-input {
+    background-color: #16213e;
+    border-color: #2a3a5c;
+    color: #e0e0e0;
+}
+
+.dark-theme .btn-secondary {
+    background-color: #2a3a5c;
+    color: #b0b8c8;
+}
+
+.dark-theme .btn-secondary:hover {
+    background-color: #3a4a6c;
+}
+
+.dark-theme .sidebar-help-title {
+    color: #8892a4;
+}
+
+.dark-theme .sidebar-help-link {
+    color: #5b9cf6;
+}
+
