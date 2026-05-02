@@ -23,7 +23,7 @@ body {
     width: 240px;
     background-color: #f7f8f9;
     color: #172b4d;
-    padding: 16px 0;
+    padding: 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -59,7 +59,7 @@ body {
 
 .sidebar-menu {
     list-style: none;
-    padding: 0;
+    padding: 8px 0;
     margin: 0;
 }
 
