@@ -132,14 +132,28 @@ header {
     z-index: 100;
 }
 
-.logo {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
+.header-actions {
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.btn-header-secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.btn-header-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-header-primary {
+    background-color: #3a7bd5;
+    color: white;
+}
+
+.btn-header-primary:hover {
+    background-color: #2b6bc0;
 }
 
 .search-bar {
@@ -160,11 +174,23 @@ header {
     color: #172b4d;
 }
 
-.user-menu {
+/* User avatar circle */
+.user-avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #0c66e4;
+    color: white;
     display: flex;
     align-items: center;
-    gap: 16px;
-    color: white;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.user-avatar-circle:hover {
+    background-color: #0952b5;
 }
 
 /* Board layout */
@@ -438,10 +464,7 @@ header {
 .status-in-progress { background-color: #fffbf0; color: #bf7e28; }
 .status-done { background-color: #d1fae5; color: #006a4e; margin-bottom: 8px; }
 
-/* User avatar */
-.user-avatar {
-    cursor: pointer;
-}
+
 
 /* Board subtitle */
 .board-subtitle {

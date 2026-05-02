@@ -9,22 +9,31 @@
 <body>
     <!-- Header -->
     <header>
+        <div class="header-actions">
+            <button class="btn btn-header-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="19" cy="12" r="1"></circle>
+                    <circle cx="5" cy="12" r="1"></circle>
+                </svg>
+                More
+            </button>
+
+            <button class="btn btn-header-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Create Issue
+            </button>
+        </div>
+
         <div class="search-bar">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b778c" stroke-width="2">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
             <input type="text" placeholder="Search issues...">
-        </div>
-
-        <div class="user-menu">
-            <div class="user-avatar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                    <path d="M18 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-            </div>
-            <span>John Smith</span>
         </div>
     </header>
 
@@ -137,10 +146,7 @@
             </ul>
 
             <div class="sidebar-footer">
-                <div class="sidebar-help">
-                    <p class="sidebar-help-title">Need help?</p>
-                    <a href="#" class="sidebar-help-link">Jira Help Center</a>
-                </div>
+                <div class="user-avatar-circle" title="John Smith">JS</div>
             </div>
         </aside>
 
@@ -152,24 +158,7 @@
                     <p class="board-subtitle" id="boardSubtitle"></p>
                 </div>
 
-                <div class="board-actions">
-                    <button class="btn btn-secondary">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#42526e" stroke-width="2">
-                            <circle cx="12" cy="12" r="1"></circle>
-                            <circle cx="19" cy="12" r="1"></circle>
-                            <circle cx="5" cy="12" r="1"></circle>
-                        </svg>
-                        More
-                    </button>
 
-                    <button class="btn btn-primary">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                        Create Issue
-                    </button>
-                </div>
             </div>
 
             <div class="board-columns" id="boardColumns"></div>
