@@ -15,6 +15,7 @@ body {
 .app-container {
     display: flex;
     min-height: 100vh;
+    padding-left: 240px;
 }
 
 /* Sidebar */
@@ -24,8 +25,11 @@ body {
     color: white;
     padding: 16px 0;
     position: fixed;
+    top: 0;
+    left: 0;
     height: 100%;
     overflow-y: auto;
+    z-index: 50;
     transition: transform 0.3s ease;
 }
 
@@ -107,7 +111,7 @@ header {
     height: 48px;
     position: fixed;
     top: 0;
-    left: 0;
+    left: 240px;
     right: 0;
     z-index: 100;
 }
@@ -150,9 +154,11 @@ header {
 /* Board layout */
 .board-container {
     padding: 20px;
-    margin-left: 240px;
     margin-top: 48px;
     height: calc(100vh - 48px);
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
 }
 
 
