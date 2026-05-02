@@ -155,8 +155,8 @@
         <div class="board-container">
             <div class="board-header">
                 <div class="board-title">
-                    <h1>Kanban Board</h1>
-                    <p class="board-subtitle">Project: Website Redesign &bull; Sprint 3</p>
+                    <h1 id="boardName">Kanban Board</h1>
+                    <p class="board-subtitle" id="boardSubtitle"></p>
                 </div>
 
                 <div class="board-actions">
@@ -179,146 +179,7 @@
                 </div>
             </div>
 
-            <div class="board-columns">
-                <!-- QA Column -->
-                <div class="column">
-                    <div class="column-header">
-                        <span>QA</span>
-                        <span class="column-count">3</span>
-                    </div>
-                    <div class="column-tasks">
-                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-11')" ondragstart="dragStart(event)">
-                            <div class="labels">
-                                <span class="label">Testing</span>
-                            </div>
-                            <div class="task-header">
-                                <span class="task-key">ISSUE-11</span>
-                                <span class="task-type">Task</span>
-                            </div>
-                            <div class="task-title">Write unit tests for user authentication module</div>
-                            <div class="task-meta">
-                                <div class="meta-item priority-medium">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffb74d">
-                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                                        <line x1="12" y1="9" x2="12" y2="13"></line>
-                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-13')" ondragstart="dragStart(event)">
-                            <div class="labels">
-                                <span class="label">Documentation</span>
-                            </div>
-                            <div class="task-header">
-                                <span class="task-key">ISSUE-13</span>
-                                <span class="task-type">Task</span>
-                            </div>
-                            <div class="task-title">Update README with new features</div>
-                            <div class="task-meta">
-                                <div class="meta-item priority-low">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#90a4ae">
-                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                                        <line x1="12" y1="9" x2="12" y2="13"></line>
-                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-14')" ondragstart="dragStart(event)">
-                            <div class="labels">
-                                <span class="label">Bug</span>
-                                <span class="label">Frontend</span>
-                            </div>
-                            <div class="task-header">
-                                <span class="task-key">ISSUE-14</span>
-                                <span class="task-type">Bug</span>
-                            </div>
-                            <div class="task-title">Fix responsive layout on tablet devices</div>
-                            <div class="task-meta">
-                                <div class="meta-item priority-medium">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffb74d">
-                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                                        <line x1="12" y1="9" x2="12" y2="13"></line>
-                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Done Column -->
-                <div class="column">
-                    <div class="column-header">
-                        <span>Done</span>
-                        <span class="column-count">5</span>
-                    </div>
-                    <div class="column-tasks">
-                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-15')" ondragstart="dragStart(event)">
-                            <div class="labels">
-                                <span class="label">Feature</span>
-                            </div>
-                            <div class="task-header">
-                                <span class="task-key">ISSUE-15</span>
-                                <span class="task-type">Story</span>
-                            </div>
-                            <div class="task-title">Implement user dashboard</div>
-                            <div class="status status-done">Completed</div>
-                        </div>
-
-                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-16')" ondragstart="dragStart(event)">
-                            <div class="labels">
-                                <span class="label">Refactoring</span>
-                            </div>
-                            <div class="task-header">
-                                <span class="task-key">ISSUE-16</span>
-                                <span class="task-type">Task</span>
-                            </div>
-                            <div class="task-title">Clean up CSS architecture</div>
-                            <div class="status status-done">Completed</div>
-                        </div>
-
-                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-17')" ondragstart="dragStart(event)">
-                            <div class="labels">
-                                <span class="label">Security</span>
-                            </div>
-                            <div class="task-header">
-                                <span class="task-key">ISSUE-17</span>
-                                <span class="task-type">Task</span>
-                            </div>
-                            <div class="task-title">Update SSL certificates</div>
-                            <div class="status status-done">Completed</div>
-                        </div>
-
-                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-18')" ondragstart="dragStart(event)">
-                            <div class="labels">
-                                <span class="label">Backend</span>
-                            </div>
-                            <div class="task-header">
-                                <span class="task-key">ISSUE-18</span>
-                                <span class="task-type">Task</span>
-                            </div>
-                            <div class="task-title">Migrate database to PostgreSQL</div>
-                            <div class="status status-done">Completed</div>
-                        </div>
-
-                        <div class="task-card" draggable="true" onclick="openModal('ISSUE-19')" ondragstart="dragStart(event)">
-                            <div class="labels">
-                                <span class="label">Frontend</span>
-                            </div>
-                            <div class="task-header">
-                                <span class="task-key">ISSUE-19</span>
-                                <span class="task-type">Story</span>
-                            </div>
-                            <div class="task-title">Redesign home page hero section</div>
-                            <div class="status status-done">Completed</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="board-columns" id="boardColumns"></div>
         </div>
     </div>
 
@@ -394,26 +255,178 @@
     </div>
 
     <script>
+        const API_URL = 'api/board.json';
+
         let currentIssue = null;
         const issues = {};
 
-        function openModal(issueKey) {
-            const modal = document.getElementById('issueModal');
+        const priorityColors = {
+            high: '#ff6b6b',
+            medium: '#ffb74d',
+            low: '#90a4ae'
+        };
 
-            if (!issues[issueKey]) {
-                issues[issueKey] = {
-                    key: issueKey,
-                    title: `Issue ${issueKey} - Title`,
-                    type: 'Task',
-                    priority: 'Medium',
-                    assignee: 'Unassigned',
-                    labels: [],
-                    description: '',
-                    status: 'To Do'
-                };
+        const prioritySvg = (color) => `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="${color}">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>`;
+
+        function renderTaskCard(task) {
+            const labelsHtml = task.labels.map(l => `<span class="label">${l}</span>`).join('');
+            const color = priorityColors[task.priority] || priorityColors.medium;
+
+            let bottomHtml = '';
+            if (task.status && task.statusText) {
+                bottomHtml = `<div class="status status-${task.status}">${task.statusText}</div>`;
+            } else {
+                bottomHtml = `
+                    <div class="task-meta">
+                        <div class="meta-item priority-${task.priority}">
+                            ${prioritySvg(color)}
+                        </div>
+                    </div>`;
             }
 
+            return `
+                <div class="task-card" draggable="true" onclick="openModal('${task.key}')" ondragstart="dragStart(event)">
+                    <div class="labels">${labelsHtml}</div>
+                    <div class="task-header">
+                        <span class="task-key">${task.key}</span>
+                        <span class="task-type">${task.type}</span>
+                    </div>
+                    <div class="task-title">${task.title}</div>
+                    ${bottomHtml}
+                </div>`;
+        }
+
+        function renderColumn(column) {
+            const tasksHtml = column.tasks.map(renderTaskCard).join('');
+            return `
+                <div class="column">
+                    <div class="column-header">
+                        <span>${column.title}</span>
+                        <span class="column-count">${column.tasks.length}</span>
+                    </div>
+                    <div class="column-tasks">${tasksHtml}</div>
+                </div>`;
+        }
+
+        function initDragAndDrop() {
+            let draggedItem = null;
+
+            window.dragStart = function(event) {
+                draggedItem = event.target.closest('.task-card');
+                draggedItem.classList.add('dragging');
+                event.dataTransfer.effectAllowed = 'move';
+                event.dataTransfer.setData('text/plain', '');
+                setTimeout(() => { draggedItem.style.opacity = '0.5'; }, 0);
+            };
+
+            document.querySelectorAll('.column-tasks').forEach(container => {
+                container.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                    const afterElement = getDragAfterElement(container, e.clientY);
+                    const draggable = document.querySelector('.dragging');
+                    if (!draggable) return;
+                    if (afterElement == null) {
+                        container.appendChild(draggable);
+                    } else {
+                        container.insertBefore(draggable, afterElement);
+                    }
+                });
+
+                container.addEventListener('dragenter', function(e) {
+                    e.preventDefault();
+                    if (e.target.classList.contains('column-tasks')) {
+                        container.style.backgroundColor = '#e0e5eb';
+                    }
+                });
+
+                container.addEventListener('dragleave', function(e) {
+                    if (!container.contains(e.relatedTarget)) {
+                        container.style.backgroundColor = '';
+                    }
+                });
+
+                container.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    container.style.backgroundColor = '';
+                    if (!draggedItem) return;
+
+                    const afterElement = getDragAfterElement(container, e.clientY);
+                    if (afterElement == null) {
+                        container.appendChild(draggedItem);
+                    } else {
+                        container.insertBefore(draggedItem, afterElement);
+                    }
+
+                    draggedItem.classList.remove('dragging');
+                    draggedItem.style.opacity = '';
+                    draggedItem = null;
+                });
+            });
+
+            function getDragAfterElement(container, y) {
+                const draggableElements = [...container.querySelectorAll('.task-card:not(.dragging)')];
+                return draggableElements.reduce((closest, child) => {
+                    const box = child.getBoundingClientRect();
+                    const offset = y - box.top - box.height / 2;
+                    if (offset < 0 && offset > closest.offset) {
+                        return { offset: offset, element: child };
+                    } else {
+                        return closest;
+                    }
+                }, { offset: Number.NEGATIVE_INFINITY }).element;
+            }
+
+            document.addEventListener('dragend', function(e) {
+                if (e.target.classList.contains('task-card')) {
+                    e.target.classList.remove('dragging');
+                    e.target.style.opacity = '';
+                }
+            });
+        }
+
+        async function loadBoard() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                document.getElementById('boardName').textContent = data.board.name;
+                document.getElementById('boardSubtitle').textContent =
+                    `Project: ${data.board.project} \u2022 ${data.board.sprint}`;
+
+                const columnsContainer = document.getElementById('boardColumns');
+                columnsContainer.innerHTML = data.columns.map(renderColumn).join('');
+
+                data.columns.forEach(column => {
+                    column.tasks.forEach(task => {
+                        issues[task.key] = {
+                            key: task.key,
+                            title: task.title,
+                            type: task.type,
+                            priority: task.priority.charAt(0).toUpperCase() + task.priority.slice(1),
+                            assignee: task.assignee,
+                            labels: task.labels,
+                            description: task.description,
+                            status: task.statusText || 'To Do'
+                        };
+                    });
+                });
+
+                initDragAndDrop();
+            } catch (error) {
+                console.error('Failed to load board data:', error);
+            }
+        }
+
+        function openModal(issueKey) {
+            const modal = document.getElementById('issueModal');
             currentIssue = issues[issueKey];
+            if (!currentIssue) return;
 
             document.getElementById('issueKey').value = currentIssue.key;
             document.getElementById('issueTitle').value = currentIssue.title;
@@ -441,123 +454,20 @@
                 currentIssue.labels = document.getElementById('issueLabels').value.split(',').map(l => l.trim()).filter(l => l);
                 currentIssue.description = document.getElementById('issueDescription').value;
                 currentIssue.status = document.getElementById('issueStatus').value;
-
                 console.log('Updated issue:', currentIssue);
                 closeModal();
             }
         }
 
         document.getElementById('issueModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+            if (e.target === this) closeModal();
         });
 
         document.querySelector('.search-bar input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                console.log('Search:', this.value);
-            }
+            if (e.key === 'Enter') console.log('Search:', this.value);
         });
 
-        // Drag and Drop
-        let draggedItem = null;
-
-        function dragStart(event) {
-            draggedItem = event.target;
-            event.target.classList.add('dragging');
-            event.dataTransfer.effectAllowed = 'move';
-            event.dataTransfer.setData('text/plain', event.target.getAttribute('onclick'));
-
-            setTimeout(() => {
-                event.target.style.opacity = '0.5';
-            }, 0);
-        }
-
-        const columnTasksContainers = document.querySelectorAll('.column-tasks');
-
-        columnTasksContainers.forEach(container => {
-            container.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                e.dataTransfer.dropEffect = 'move';
-
-                const afterElement = getDragAfterElement(container, e.clientY);
-                const draggable = document.querySelector('.dragging');
-
-                if (afterElement == null) {
-                    container.appendChild(draggable);
-                } else {
-                    container.insertBefore(draggable, afterElement);
-                }
-            });
-
-            container.addEventListener('dragenter', function(e) {
-                e.preventDefault();
-                if (e.target.classList.contains('column-tasks')) {
-                    container.style.backgroundColor = '#e0e5eb';
-                }
-            });
-
-            container.addEventListener('dragleave', function(e) {
-                if (!container.contains(e.relatedTarget)) {
-                    container.style.backgroundColor = '';
-                }
-            });
-
-            container.addEventListener('drop', function(e) {
-                e.preventDefault();
-                container.style.backgroundColor = '';
-
-                if (draggedItem && draggedItem.parentNode === container) {
-                    const afterElement = getDragAfterElement(container, e.clientY);
-
-                    if (afterElement == null) {
-                        if (draggedItem !== container.lastElementChild) {
-                            container.appendChild(draggedItem);
-                        }
-                    } else if (draggedItem !== afterElement.previousElementSibling) {
-                        container.insertBefore(draggedItem, afterElement);
-                    }
-
-                    draggedItem.classList.remove('dragging');
-                    draggedItem.style.opacity = '';
-                    draggedItem = null;
-                } else if (draggedItem && draggedItem.parentNode !== container) {
-                    const afterElement = getDragAfterElement(container, e.clientY);
-
-                    if (afterElement == null) {
-                        container.appendChild(draggedItem);
-                    } else {
-                        container.insertBefore(draggedItem, afterElement);
-                    }
-
-                    draggedItem.classList.remove('dragging');
-                    draggedItem.style.opacity = '';
-                    draggedItem = null;
-                }
-            });
-        });
-
-        function getDragAfterElement(container, y) {
-            const draggableElements = [...container.querySelectorAll('.task-card:not(.dragging)')];
-
-            return draggableElements.reduce((closest, child) => {
-                const box = child.getBoundingClientRect();
-                const offset = y - box.top - box.height / 2;
-
-                if (offset < 0 && offset > closest.offset) {
-                    return { offset: offset, element: child };
-                } else {
-                    return closest;
-                }
-            }, { offset: Number.NEGATIVE_INFINITY }).element;
-        }
-
-        document.addEventListener('dragend', function(e) {
-            if (e.target.classList.contains('task-card')) {
-                e.target.classList.remove('dragging');
-                e.target.style.opacity = '';
-            }
-        });
+        loadBoard();
     </script>
 </body>
 </html>

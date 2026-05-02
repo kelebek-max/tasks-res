@@ -1,0 +1,106 @@
+{
+    "board": {
+        "name": "Kanban Board",
+        "project": "Website Redesign",
+        "sprint": "Sprint 3"
+    },
+    "columns": [
+        {
+            "id": "qa",
+            "title": "QA",
+            "tasks": [
+                {
+                    "key": "ISSUE-11",
+                    "title": "Write unit tests for user authentication module",
+                    "type": "Task",
+                    "priority": "medium",
+                    "labels": ["Testing"],
+                    "status": null,
+                    "assignee": "Unassigned",
+                    "description": ""
+                },
+                {
+                    "key": "ISSUE-13",
+                    "title": "Update README with new features",
+                    "type": "Task",
+                    "priority": "low",
+                    "labels": ["Documentation"],
+                    "status": null,
+                    "assignee": "Unassigned",
+                    "description": ""
+                },
+                {
+                    "key": "ISSUE-14",
+                    "title": "Fix responsive layout on tablet devices",
+                    "type": "Bug",
+                    "priority": "medium",
+                    "labels": ["Bug", "Frontend"],
+                    "status": null,
+                    "assignee": "Unassigned",
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": "done",
+            "title": "Done",
+            "tasks": [
+                {
+                    "key": "ISSUE-15",
+                    "title": "Implement user dashboard",
+                    "type": "Story",
+                    "priority": "high",
+                    "labels": ["Feature"],
+                    "status": "done",
+                    "statusText": "Completed",
+                    "assignee": "Unassigned",
+                    "description": ""
+                },
+                {
+                    "key": "ISSUE-16",
+                    "title": "Clean up CSS architecture",
+                    "type": "Task",
+                    "priority": "medium",
+                    "labels": ["Refactoring"],
+                    "status": "done",
+                    "statusText": "Completed",
+                    "assignee": "Unassigned",
+                    "description": ""
+                },
+                {
+                    "key": "ISSUE-17",
+                    "title": "Update SSL certificates",
+                    "type": "Task",
+                    "priority": "medium",
+                    "labels": ["Security"],
+                    "status": "done",
+                    "statusText": "Completed",
+                    "assignee": "Unassigned",
+                    "description": ""
+                },
+                {
+                    "key": "ISSUE-18",
+                    "title": "Migrate database to PostgreSQL",
+                    "type": "Task",
+                    "priority": "medium",
+                    "labels": ["Backend"],
+                    "status": "done",
+                    "statusText": "Completed",
+                    "assignee": "Unassigned",
+                    "description": ""
+                },
+                {
+                    "key": "ISSUE-19",
+                    "title": "Redesign home page hero section",
+                    "type": "Story",
+                    "priority": "medium",
+                    "labels": ["Frontend"],
+                    "status": "done",
+                    "statusText": "Completed",
+                    "assignee": "Unassigned",
+                    "description": ""
+                }
+            ]
+        }
+    ]
+}
