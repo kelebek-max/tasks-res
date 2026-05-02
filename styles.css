@@ -21,7 +21,7 @@ body {
 /* Sidebar */
 .sidebar {
     width: 240px;
-    background-color: #0052cc;
+    background-color: #2d3e50;
     color: white;
     padding: 16px 0;
     position: fixed;
@@ -103,7 +103,7 @@ body {
 
 /* Header */
 header {
-    background-color: #0052cc;
+    background-color: #2d3e50;
     padding: 8px 16px;
     display: flex;
     align-items: center;
@@ -193,12 +193,12 @@ header {
 }
 
 .btn-primary {
-    background-color: #00657f;
+    background-color: #3a7bd5;
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #0052cc;
+    background-color: #2d3e50;
 }
 
 .btn-secondary {
@@ -271,7 +271,7 @@ header {
 .task-card.dragging {
     opacity: 0.5;
     cursor: grabbing;
-    border: 2px dashed #00657f;
+    border: 2px dashed #3a7bd5;
 }
 
 .task-header {
