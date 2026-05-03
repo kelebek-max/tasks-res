@@ -2,12 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const columns = document.querySelectorAll('.column-cards');
   let draggedCard = null;
 
+  // Create a visible placeholder element
+  const placeholder = document.createElement('div');
+  placeholder.classList.add('drag-placeholder');
+
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('dragstart', (e) => {
       draggedCard = card;
       card.classList.add('dragging');
       e.dataTransfer.effectAllowed = 'move';
-      // Slight delay so the drag image captures the card before opacity change
       requestAnimationFrame(() => {
         card.style.opacity = '0.4';
       });
@@ -17,11 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
       card.classList.remove('dragging');
       card.style.opacity = '';
       draggedCard = null;
-      // Remove all drag-over highlights
       columns.forEach(col => col.classList.remove('drag-over'));
-      document.querySelectorAll('.card').forEach(c => {
-        c.classList.remove('drag-above', 'drag-below');
-      });
+      if (placeholder.parentNode) {
+        placeholder.parentNode.removeChild(placeholder);
+      }
       updateColumnCounts();
     });
   });
@@ -33,40 +35,34 @@ document.addEventListener('DOMContentLoaded', () => {
       column.classList.add('drag-over');
 
       const afterElement = getDragAfterElement(column, e.clientY);
-      // Clear previous position indicators in this column
-      column.querySelectorAll('.card').forEach(c => {
-        c.classList.remove('drag-above', 'drag-below');
-      });
 
+      // Insert placeholder at the right position
       if (afterElement) {
-        afterElement.classList.add('drag-above');
+        column.insertBefore(placeholder, afterElement);
+      } else {
+        column.appendChild(placeholder);
       }
     });
 
     column.addEventListener('dragleave', (e) => {
-      // Only remove if actually leaving the column
       if (!column.contains(e.relatedTarget)) {
         column.classList.remove('drag-over');
-        column.querySelectorAll('.card').forEach(c => {
-          c.classList.remove('drag-above', 'drag-below');
-        });
+        if (placeholder.parentNode === column) {
+          column.removeChild(placeholder);
+        }
       }
     });
 
     column.addEventListener('drop', (e) => {
       e.preventDefault();
       column.classList.remove('drag-over');
-      column.querySelectorAll('.card').forEach(c => {
-        c.classList.remove('drag-above', 'drag-below');
-      });
 
       if (!draggedCard) return;
 
-      const afterElement = getDragAfterElement(column, e.clientY);
-      if (afterElement) {
-        column.insertBefore(draggedCard, afterElement);
-      } else {
-        column.appendChild(draggedCard);
+      // Insert the card where the placeholder is
+      if (placeholder.parentNode) {
+        placeholder.parentNode.insertBefore(draggedCard, placeholder);
+        placeholder.parentNode.removeChild(placeholder);
       }
     });
   });
