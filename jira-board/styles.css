@@ -355,13 +355,17 @@ a {
 }
 
 .column-cards {
-  transition: background 0.25s ease;
+  transition: background 0.25s ease, outline-color 0.25s ease;
+  outline: 2px dashed transparent;
+  outline-offset: -2px;
 }
 
 .column-cards.drag-over {
   background: rgba(0, 82, 204, 0.06);
   border-radius: 4px;
   min-height: 60px;
+  outline: 2px dashed rgba(0, 82, 204, 0.35);
+  outline-offset: -2px;
 }
 
 .card:hover {
