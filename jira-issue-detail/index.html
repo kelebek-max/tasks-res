@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jira - DEMO-4 - Task 1</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Dimmed Background (Kanban board behind modal) -->
+<div class="backdrop">
+  <div class="backdrop-topbar">
+    <span>Projects</span>
+    <span>Filters <i class="fa-solid fa-chevron-down"></i></span>
+    <span>Dashboards <i class="fa-solid fa-chevron-down"></i></span>
+    <span>People <i class="fa-solid fa-chevron-down"></i></span>
+    <span>Apps <i class="fa-solid fa-chevron-down"></i></span>
+    <span class="backdrop-create">Create</span>
+    <div class="backdrop-search"><i class="fa-solid fa-magnifying-glass"></i> Sea...</div>
+  </div>
+  <div class="backdrop-sidebar">
+    <span class="backdrop-project">Proje...</span>
+    <span class="backdrop-board-title">Kan...</span>
+    <div class="backdrop-search-sm">Sea...</div>
+    <div class="backdrop-col">
+      <span class="backdrop-col-header">BAC...</span>
+      <div class="backdrop-card">
+        <div class="backdrop-card-icon blue"></div>
+        <span>Tas...</span>
+      </div>
+      <div class="backdrop-card">
+        <div class="backdrop-card-icon blue"></div>
+        <span>Tas...</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal">
+  <!-- Modal Header -->
+  <div class="modal-header">
+    <div class="modal-header-left">
+      <span class="issue-type-icon"><i class="fa-solid fa-square-check"></i></span>
+      <a href="#" class="issue-key-link">DEMO-4</a>
+    </div>
+    <div class="modal-header-right">
+      <button class="header-btn"><i class="fa-solid fa-bullhorn"></i> Give feedback</button>
+      <button class="header-btn watchers">
+        <span class="watcher-dot"></span>
+        <span>2</span>
+      </button>
+      <button class="header-btn-icon"><i class="fa-regular fa-thumbs-up"></i></button>
+      <button class="header-btn-icon"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+      <button class="header-btn-icon"><i class="fa-solid fa-ellipsis"></i></button>
+      <button class="header-btn-icon close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+  </div>
+
+  <!-- Modal Body -->
+  <div class="modal-body">
+    <!-- Left Content -->
+    <div class="modal-content">
+      <h1 class="issue-title">Task 1</h1>
+
+      <!-- Action Buttons -->
+      <div class="action-bar">
+        <button class="action-btn"><i class="fa-solid fa-paperclip"></i> Attach</button>
+        <button class="action-btn"><i class="fa-solid fa-sitemap"></i> Create subtask</button>
+        <button class="action-btn has-dropdown">
+          <i class="fa-solid fa-link"></i> Link issue
+          <i class="fa-solid fa-chevron-down action-dropdown"></i>
+        </button>
+        <button class="action-btn"><i class="fa-regular fa-square-check"></i> Add Checklist</button>
+        <button class="action-btn-more"><i class="fa-solid fa-ellipsis"></i></button>
+      </div>
+
+      <!-- Description -->
+      <div class="description-section">
+        <h3 class="section-title">Description</h3>
+        <p class="placeholder-text">Add a description...</p>
+      </div>
+
+      <!-- Activity -->
+      <div class="activity-section">
+        <h3 class="section-title">Activity</h3>
+        <div class="activity-tabs">
+          <span class="tab-label">Show:</span>
+          <button class="tab-btn">All</button>
+          <button class="tab-btn active">Comments</button>
+          <button class="tab-btn">History</button>
+          <button class="tab-btn">Work log</button>
+          <button class="tab-btn">Checklist history</button>
+          <div class="tab-sort">
+            <span>Newest first</span>
+            <i class="fa-solid fa-arrow-down-short-wide"></i>
+          </div>
+        </div>
+
+        <!-- Add Comment -->
+        <div class="add-comment">
+          <img class="comment-avatar" src="https://ui-avatars.com/api/?name=GC&background=6c8ebf&color=fff&size=36&rounded=true" alt="">
+          <div class="comment-input">
+            <span class="comment-placeholder">Add a comment...</span>
+          </div>
+        </div>
+        <p class="pro-tip">Pro tip: press <kbd>M</kbd> to comment</p>
+
+        <!-- Comment -->
+        <div class="comment">
+          <div class="comment-avatar-wrapper">
+            <div class="comment-avatar-initials orange">BM</div>
+          </div>
+          <div class="comment-body">
+            <div class="comment-header">
+              <span class="comment-author">BigPicture - for ppm, project management</span>
+              <span class="comment-date">last week</span>
+            </div>
+            <p class="comment-text">Details: Task period changed by bigpicture to 2022-10-11 : 2022-10-11</p>
+            <div class="comment-actions">
+              <a href="#">Edit</a>
+              <span class="sep">&middot;</span>
+              <a href="#">Delete</a>
+              <span class="sep">&middot;</span>
+              <button class="reaction-btn"><i class="fa-regular fa-face-smile"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="modal-sidebar">
+      <!-- Status -->
+      <div class="status-dropdown">
+        <span>Backlog</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+
+      <!-- Details -->
+      <div class="details-panel">
+        <div class="details-header">
+          <span class="details-title">Details</span>
+          <button class="collapse-btn"><i class="fa-solid fa-chevron-up"></i></button>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Assignee</span>
+          <div class="detail-value">
+            <div class="unassigned-icon"><i class="fa-regular fa-user"></i></div>
+            <div class="assignee-info">
+              <span>Unassigned</span>
+              <a href="#" class="assign-link">Assign to me</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Reporter</span>
+          <div class="detail-value">
+            <img class="detail-avatar" src="https://ui-avatars.com/api/?name=GC&background=6c8ebf&color=fff&size=24&rounded=true" alt="">
+            <span>Gentrit Cerimi</span>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Development</span>
+          <div class="detail-value detail-value-col">
+            <div class="dev-link">
+              <i class="fa-solid fa-code-branch blue-icon"></i>
+              <a href="#">Create branch</a>
+              <i class="fa-solid fa-chevron-down tiny-chevron"></i>
+            </div>
+            <div class="dev-link">
+              <i class="fa-solid fa-code-commit blue-icon"></i>
+              <a href="#">Create commit</a>
+              <i class="fa-solid fa-chevron-down tiny-chevron"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Labels</span>
+          <div class="detail-value"><span>None</span></div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Start date</span>
+          <div class="detail-value"><span>Sep 20, 2022</span></div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Account</span>
+          <div class="detail-value"><span>None</span></div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Baseline start date</span>
+          <div class="detail-value"><span>None</span></div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Baseline end date</span>
+          <div class="detail-value"><span>None</span></div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Risk probability</span>
+          <div class="detail-value"><span>None</span></div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Risk consequence</span>
+          <div class="detail-value"><span>None</span></div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">End Date</span>
+          <div class="detail-value"><span>Oct 11, 2022</span></div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Priority</span>
+          <div class="detail-value">
+            <i class="fa-solid fa-equals orange-icon"></i>
+            <span>Medium</span>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Automation</span>
+          <div class="detail-value">
+            <i class="fa-solid fa-bolt blue-icon"></i>
+            <span>Rule executions</span>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">AWS Service Catalog</span>
+          <div class="detail-value">
+            <span class="aws-icon">aws</span>
+            <span>Open Requested Product</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
