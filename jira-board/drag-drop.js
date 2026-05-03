@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const columns = document.querySelectorAll('.column-cards');
   let draggedCard = null;
 
-  // Create a visible placeholder element
   const placeholder = document.createElement('div');
   placeholder.classList.add('drag-placeholder');
 
@@ -36,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const afterElement = getDragAfterElement(column, e.clientY);
 
-      // Insert placeholder at the right position
       if (afterElement) {
         column.insertBefore(placeholder, afterElement);
       } else {
@@ -59,11 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!draggedCard) return;
 
-      // Insert the card where the placeholder is
       if (placeholder.parentNode) {
         placeholder.parentNode.insertBefore(draggedCard, placeholder);
         placeholder.parentNode.removeChild(placeholder);
       }
+
+      // Landing animation
+      draggedCard.classList.add('card-landing');
+      draggedCard.addEventListener('animationend', function handler() {
+        draggedCard.classList.remove('card-landing');
+        draggedCard.removeEventListener('animationend', handler);
+      });
     });
   });
 
