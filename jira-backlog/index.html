@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jira - Backlog - Platform Development</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Top Navigation Bar -->
+<header class="top-nav">
+  <div class="top-nav-left">
+    <button class="nav-icon-btn"><i class="fa-solid fa-grip"></i></button>
+    <a href="#" class="jira-logo">
+      <i class="fa-brands fa-jira"></i>
+      <span>Jira</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#" class="nav-link active">Projects <i class="fa-solid fa-chevron-down"></i></a>
+      <a href="#" class="nav-link">Your work <i class="fa-solid fa-chevron-down"></i></a>
+      <a href="#" class="nav-link">Filters <i class="fa-solid fa-chevron-down"></i></a>
+      <a href="#" class="nav-link">Dashboards <i class="fa-solid fa-chevron-down"></i></a>
+      <a href="#" class="nav-link">Teams <i class="fa-solid fa-chevron-down"></i></a>
+      <a href="#" class="nav-link">Assets</a>
+      <a href="#" class="nav-link">Apps <i class="fa-solid fa-chevron-down"></i></a>
+    </nav>
+    <button class="create-btn">Create</button>
+  </div>
+  <div class="top-nav-right">
+    <div class="search-box-nav">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <span>Search</span>
+    </div>
+    <button class="nav-icon-btn"><i class="fa-regular fa-comment-dots"></i> Chat</button>
+    <button class="nav-icon-btn"><i class="fa-regular fa-bell"></i></button>
+    <button class="nav-icon-btn"><i class="fa-regular fa-circle-question"></i></button>
+    <button class="nav-icon-btn"><i class="fa-solid fa-gear"></i></button>
+    <div class="user-avatar-nav"></div>
+  </div>
+</header>
+
+<!-- Left Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-project-header">
+    <div class="project-icon-red">
+      <i class="fa-solid fa-chart-bar"></i>
+    </div>
+    <div class="project-info">
+      <span class="project-name">Platform Development</span>
+      <span class="project-type">Software project</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section-label">PLANNING</div>
+
+  <div class="sidebar-item has-sub">
+    <div class="sidebar-item-main">
+      <i class="fa-solid fa-table-columns"></i>
+      <span>PLAT board</span>
+      <i class="fa-solid fa-chevron-down sub-arrow"></i>
+    </div>
+    <span class="sidebar-sub-label">Board</span>
+  </div>
+
+  <a href="#" class="sidebar-item">
+    <i class="fa-solid fa-bars-staggered"></i>
+    <span>Timeline</span>
+  </a>
+  <a href="#" class="sidebar-item active">
+    <i class="fa-solid fa-layer-group"></i>
+    <span>Backlog</span>
+  </a>
+  <a href="#" class="sidebar-item">
+    <i class="fa-solid fa-person-running"></i>
+    <span>Active sprints</span>
+  </a>
+  <a href="#" class="sidebar-item">
+    <i class="fa-regular fa-calendar"></i>
+    <span>Calendar</span>
+    <span class="new-badge">NEW</span>
+  </a>
+  <a href="#" class="sidebar-item">
+    <i class="fa-solid fa-chart-pie"></i>
+    <span>Reports</span>
+  </a>
+
+  <div class="sidebar-divider"></div>
+
+  <a href="#" class="sidebar-item">
+    <i class="fa-solid fa-list"></i>
+    <span>List</span>
+  </a>
+  <a href="#" class="sidebar-item">
+    <i class="fa-regular fa-circle-dot"></i>
+    <span>Goals</span>
+  </a>
+  <a href="#" class="sidebar-item">
+    <i class="fa-regular fa-square-check"></i>
+    <span>Issues</span>
+  </a>
+
+  <div class="sidebar-section-label">DEVELOPMENT</div>
+
+  <a href="#" class="sidebar-item">
+    <i class="fa-solid fa-puzzle-piece"></i>
+    <span>Components</span>
+  </a>
+
+  <div class="sidebar-footer">
+    <span>You're in a company-managed project</span>
+    <a href="#">Learn more</a>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<main class="main-content">
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="#">Projects</a>
+    <span>/</span>
+    <a href="#">Platform Development</a>
+    <span>/</span>
+    <a href="#">PLAT board</a>
+  </div>
+
+  <div class="content-header">
+    <h1 class="page-title">Backlog</h1>
+    <div class="content-header-actions">
+      <button class="icon-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+      <button class="icon-btn"><i class="fa-solid fa-expand"></i></button>
+      <button class="icon-btn"><i class="fa-solid fa-ellipsis"></i></button>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="filter-bar-left">
+      <div class="search-input">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search">
+      </div>
+      <div class="avatar-group">
+        <img class="avatar-filter" src="https://ui-avatars.com/api/?name=&background=4a9bd9&color=fff&size=32&rounded=true" alt="">
+        <img class="avatar-filter" src="https://ui-avatars.com/api/?name=&background=36b37e&color=fff&size=32&rounded=true" alt="">
+        <img class="avatar-filter" src="https://ui-avatars.com/api/?name=JE&background=0052cc&color=fff&size=32&rounded=true" alt="">
+        <img class="avatar-filter" src="https://ui-avatars.com/api/?name=MD&background=6554c0&color=fff&size=32&rounded=true" alt="">
+        <div class="avatar-filter avatar-extra"><i class="fa-solid fa-user"></i></div>
+      </div>
+      <button class="filter-dropdown">Version <i class="fa-solid fa-chevron-down"></i></button>
+      <button class="filter-dropdown">Epic <i class="fa-solid fa-chevron-down"></i></button>
+      <button class="filter-dropdown outlined">Quick filters <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div class="filter-bar-right">
+      <button class="filter-btn"><i class="fa-solid fa-chart-simple"></i> Insights</button>
+      <button class="filter-btn"><i class="fa-solid fa-sliders"></i> View settings</button>
+    </div>
+  </div>
+
+  <!-- Sprint Section -->
+  <div class="sprint-section">
+    <div class="sprint-header">
+      <div class="sprint-header-left">
+        <input type="checkbox" class="sprint-checkbox">
+        <button class="sprint-collapse"><i class="fa-solid fa-chevron-down"></i></button>
+        <span class="sprint-name">Sprint 2024-08-12H00</span>
+        <span class="sprint-dates">11 Aug – 12 Aug</span>
+        <span class="sprint-issues">(13 issues)</span>
+      </div>
+      <div class="sprint-header-right">
+        <span class="sprint-stat">8</span>
+        <span class="sprint-badge green">5</span>
+        <span class="sprint-badge blue">30</span>
+        <button class="complete-sprint-btn">Complete sprint</button>
+        <button class="icon-btn"><i class="fa-solid fa-ellipsis"></i></button>
+      </div>
+    </div>
+    <div class="sprint-description">
+      <p>This is the latest sprint and our goal is to complete the sprint.</p>
+    </div>
+    <div class="sprint-avatars">
+      <img src="https://ui-avatars.com/api/?name=&background=4a9bd9&color=fff&size=28&rounded=true" alt="">
+      <img src="https://ui-avatars.com/api/?name=MD&background=6554c0&color=fff&size=28&rounded=true" alt="">
+      <img src="https://ui-avatars.com/api/?name=JE&background=0052cc&color=fff&size=28&rounded=true" alt="">
+      <button class="more-avatars"><i class="fa-solid fa-ellipsis"></i></button>
+    </div>
+
+    <!-- Issue Rows -->
+    <div class="issue-table">
+      <div class="issue-row">
+        <span class="issue-type-icon story"><i class="fa-solid fa-bookmark"></i></span>
+        <span class="issue-key">PLAT-25636</span>
+        <span class="issue-summary">Notifications upgrade for platform links</span>
+        <span class="issue-version">ALPHA</span>
+        <span class="issue-epic epic-blue-text">NOTIFICATIONS</span>
+        <span class="issue-status status-todo">TO DO <i class="fa-solid fa-chevron-down"></i></span>
+        <span class="issue-points">3</span>
+        <span class="issue-priority"><i class="fa-solid fa-minus red"></i></span>
+        <img class="issue-avatar" src="https://ui-avatars.com/api/?name=&background=4a9bd9&color=fff&size=24&rounded=true" alt="">
+      </div>
+
+      <div class="issue-row">
+        <span class="issue-type-icon story"><i class="fa-solid fa-bookmark"></i></span>
+        <span class="issue-key">PLAT-25638</span>
+        <span class="issue-summary">Customer application auth update</span>
+        <span class="issue-version">GAMMA</span>
+        <span class="issue-epic epic-blue-bg">CUSTOMERS</span>
+        <span class="issue-status status-todo">TO DO <i class="fa-solid fa-chevron-down"></i></span>
+        <span class="issue-points">5</span>
+        <span class="issue-priority"><i class="fa-solid fa-angles-up red"></i></span>
+        <img class="issue-avatar" src="https://ui-avatars.com/api/?name=&background=4a9bd9&color=fff&size=24&rounded=true" alt="">
+      </div>
+
+      <div class="issue-row">
+        <span class="issue-type-icon story"><i class="fa-solid fa-bookmark"></i></span>
+        <span class="issue-key">PLAT-25637</span>
+        <span class="issue-summary">Setup product feature improvement</span>
+        <span class="issue-version">BETA</span>
+        <span class="issue-epic epic-green-text">PRODUCTS</span>
+        <span class="issue-status status-done">DONE <i class="fa-solid fa-chevron-down"></i></span>
+        <span class="issue-points">4</span>
+        <span class="issue-priority"><i class="fa-solid fa-angles-up red"></i></span>
+        <img class="issue-avatar" src="https://ui-avatars.com/api/?name=MD&background=6554c0&color=fff&size=24&rounded=true" alt="">
+      </div>
+
+      <div class="issue-row">
+        <span class="issue-type-icon story"><i class="fa-solid fa-bookmark"></i></span>
+        <span class="issue-key">PLAT-25639</span>
+        <span class="issue-summary">Commerce app connector buildout</span>
+        <span class="issue-version">ALPHA</span>
+        <span class="issue-epic epic-green-bg">COMMERCE</span>
+        <span class="issue-status status-progress">IN PROGRESS <i class="fa-solid fa-chevron-down"></i></span>
+        <span class="issue-points">5</span>
+        <span class="issue-priority"><i class="fa-solid fa-angle-up red"></i></span>
+        <img class="issue-avatar" src="https://ui-avatars.com/api/?name=JE&background=0052cc&color=fff&size=24&rounded=true" alt="">
+      </div>
+
+      <div class="issue-row">
+        <span class="issue-type-icon story"><i class="fa-solid fa-bookmark"></i></span>
+        <span class="issue-key">PLAT-25640</span>
+        <span class="issue-summary">Salesforce service connector patch</span>
+        <span class="issue-version">BETA</span>
+        <span class="issue-epic epic-orange-bg">SERVICE CONNECTOR</span>
+        <span class="issue-status status-done">DONE <i class="fa-solid fa-chevron-down"></i></span>
+        <span class="issue-points">3</span>
+        <span class="issue-priority"><i class="fa-solid fa-angles-up red"></i></span>
+        <img class="issue-avatar" src="https://ui-avatars.com/api/?name=&background=e8a545&color=fff&size=24&rounded=true" alt="">
+      </div>
+
+      <div class="issue-row">
+        <span class="issue-type-icon story"><i class="fa-solid fa-bookmark"></i></span>
+        <span class="issue-key">PLAT-25641</span>
+        <span class="issue-summary">Marketing product service upgrade</span>
+        <span class="issue-version">GAMMA</span>
+        <span class="issue-epic epic-gray-bg">MARKETING CAMPAI...</span>
+        <span class="issue-status status-done">DONE <i class="fa-solid fa-chevron-down"></i></span>
+        <span class="issue-points">2</span>
+        <span class="issue-priority"><i class="fa-solid fa-equals blue"></i></span>
+        <img class="issue-avatar" src="https://ui-avatars.com/api/?name=MD&background=6554c0&color=fff&size=24&rounded=true" alt="">
+      </div>
+
+      <div class="issue-row">
+        <span class="issue-type-icon story"><i class="fa-solid fa-bookmark"></i></span>
+        <span class="issue-key">PLAT-25642</span>
+        <span class="issue-summary">AWS EC2 Service latest AMI update</span>
+        <span class="issue-version">ALPHA</span>
+        <span class="issue-epic epic-blue-text">CLOUD</span>
+        <span class="issue-status status-done">DONE <i class="fa-solid fa-chevron-down"></i></span>
+        <span class="issue-points">3</span>
+        <span class="issue-priority"><i class="fa-solid fa-equals blue"></i></span>
+        <img class="issue-avatar" src="https://ui-avatars.com/api/?name=&background=4a9bd9&color=fff&size=24&rounded=true" alt="">
+      </div>
+
+      <div class="issue-row">
+        <span class="issue-type-icon story"><i class="fa-solid fa-bookmark"></i></span>
+        <span class="issue-key">PLAT-25643</span>
+        <span class="issue-summary">Analytics dashboard integration</span>
+        <span class="issue-version">BETA</span>
+        <span class="issue-epic epic-darkblue-bg">ANALYTICS</span>
+        <span class="issue-status status-done">DONE <i class="fa-solid fa-chevron-down"></i></span>
+        <span class="issue-points">2</span>
+        <span class="issue-priority"><i class="fa-solid fa-equals blue"></i></span>
+        <img class="issue-avatar" src="https://ui-avatars.com/api/?name=JE&background=0052cc&color=fff&size=24&rounded=true" alt="">
+      </div>
+
+      <div class="issue-row">
+        <span class="issue-type-icon story"><i class="fa-solid fa-bookmark"></i></span>
+        <span class="issue-key">PLAT-25644</span>
+        <span class="issue-summary">Notifications upgrade for Mobile deployme...</span>
+        <span class="issue-version">GAMMA</span>
+        <span class="issue-epic epic-blue-text">NOTIFICATIONS</span>
+        <span class="issue-status status-done">DONE <i class="fa-solid fa-chevron-down"></i></span>
+        <span class="issue-points">3</span>
+        <span class="issue-priority"><i class="fa-solid fa-equals blue"></i></span>
+        <img class="issue-avatar" src="https://ui-avatars.com/api/?name=&background=4a9bd9&color=fff&size=24&rounded=true" alt="">
+      </div>
+
+      <div class="issue-row">
+        <span class="issue-type-icon story"><i class="fa-solid fa-bookmark"></i></span>
+        <span class="issue-key">PLAT-25645</span>
+        <span class="issue-summary">Product update needed for service config</span>
+        <span class="issue-version">ALPHA</span>
+        <span class="issue-epic epic-green-text">PRODUCTS</span>
+        <span class="issue-status status-done">DONE <i class="fa-solid fa-chevron-down"></i></span>
+        <span class="issue-points">3</span>
+        <span class="issue-priority"><i class="fa-solid fa-check green"></i></span>
+        <img class="issue-avatar" src="https://ui-avatars.com/api/?name=MD&background=6554c0&color=fff&size=24&rounded=true" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- Quickstart Button -->
+  <div class="quickstart-btn">
+    <i class="fa-regular fa-comment"></i>
+    <span>Quickstart</span>
+    <button class="quickstart-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+</main>
+
+</body>
+</html>
