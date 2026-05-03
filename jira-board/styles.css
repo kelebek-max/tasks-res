@@ -332,26 +332,11 @@ a {
 
 /* Card-sized placeholder showing where the card will be dropped */
 .drag-placeholder {
-  height: 0;
+  height: 60px;
   background: rgba(0, 82, 204, 0.08);
   border: 2px dashed #0052cc;
   border-radius: 4px;
-  margin: 0;
-  overflow: hidden;
-  animation: placeholderExpand 0.2s ease forwards;
-}
-
-@keyframes placeholderExpand {
-  from {
-    height: 0;
-    margin: 0;
-    opacity: 0;
-  }
-  to {
-    height: 60px;
-    margin: 3px 0;
-    opacity: 1;
-  }
+  margin: 3px 0;
 }
 
 .column-cards {

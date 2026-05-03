@@ -35,10 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const afterElement = getDragAfterElement(column, e.clientY);
 
+      // Only move placeholder if its position actually changed
       if (afterElement) {
-        column.insertBefore(placeholder, afterElement);
+        if (placeholder.nextSibling !== afterElement) {
+          column.insertBefore(placeholder, afterElement);
+        }
       } else {
-        column.appendChild(placeholder);
+        if (placeholder.parentNode !== column || placeholder.nextSibling !== null) {
+          column.appendChild(placeholder);
+        }
       }
     });
 
