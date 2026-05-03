@@ -1,3 +1,5 @@
+const API_BASE = window.API_BASE || 'http://localhost:8000';
+
 document.addEventListener('DOMContentLoaded', () => {
   const columns = document.querySelectorAll('.column-cards');
   let draggedCard = null;
@@ -5,27 +7,89 @@ document.addEventListener('DOMContentLoaded', () => {
   const placeholder = document.createElement('div');
   placeholder.classList.add('drag-placeholder');
 
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('dragstart', (e) => {
-      draggedCard = card;
-      card.classList.add('dragging');
-      e.dataTransfer.effectAllowed = 'move';
-      requestAnimationFrame(() => {
-        card.style.opacity = '0.4';
+  loadCards();
+
+  async function loadCards() {
+    try {
+      const res = await fetch(`${API_BASE}/api/cards`);
+      const data = await res.json();
+
+      document.querySelectorAll('.column').forEach(col => {
+        const status = col.dataset.status;
+        const container = col.querySelector('.column-cards');
+        container.innerHTML = '';
+
+        const cards = data[status] || [];
+        cards.forEach(card => {
+          container.appendChild(createCardElement(card));
+        });
+      });
+
+      updateColumnCounts();
+      bindDragEvents();
+    } catch (err) {
+      console.error('Failed to load cards:', err);
+    }
+  }
+
+  function createCardElement(card) {
+    const el = document.createElement('div');
+    el.classList.add('card');
+    el.draggable = true;
+    el.dataset.cardId = card.id;
+
+    let html = `<p class="card-title">${escapeHtml(card.title)}</p>`;
+
+    if (card.label) {
+      html += `<span class="card-label label-${card.labelColor}">${escapeHtml(card.label)}</span>`;
+    }
+
+    html += '<div class="card-footer"><div class="card-icons"></div>';
+
+    if (card.points !== null) {
+      html += `<span class="card-points">${card.points}</span>`;
+    }
+
+    html += `<span class="card-key">${escapeHtml(card.cardKey)}</span>`;
+
+    if (card.avatarInitials) {
+      html += `<img class="card-avatar" src="https://ui-avatars.com/api/?name=${card.avatarInitials}&background=${card.avatarColor}&color=fff&size=24&rounded=true" alt="">`;
+    }
+
+    html += '</div>';
+    el.innerHTML = html;
+    return el;
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function bindDragEvents() {
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('dragstart', (e) => {
+        draggedCard = card;
+        card.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+        requestAnimationFrame(() => {
+          card.style.opacity = '0.4';
+        });
+      });
+
+      card.addEventListener('dragend', () => {
+        card.classList.remove('dragging');
+        card.style.opacity = '';
+        draggedCard = null;
+        columns.forEach(col => col.classList.remove('drag-over'));
+        if (placeholder.parentNode) {
+          placeholder.parentNode.removeChild(placeholder);
+        }
+        updateColumnCounts();
       });
     });
-
-    card.addEventListener('dragend', () => {
-      card.classList.remove('dragging');
-      card.style.opacity = '';
-      draggedCard = null;
-      columns.forEach(col => col.classList.remove('drag-over'));
-      if (placeholder.parentNode) {
-        placeholder.parentNode.removeChild(placeholder);
-      }
-      updateColumnCounts();
-    });
-  });
+  }
 
   columns.forEach(column => {
     column.addEventListener('dragover', (e) => {
@@ -35,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const afterElement = getDragAfterElement(column, e.clientY);
 
-      // Only move placeholder if its position actually changed
       if (afterElement) {
         if (placeholder.nextSibling !== afterElement) {
           column.insertBefore(placeholder, afterElement);
@@ -73,6 +136,22 @@ document.addEventListener('DOMContentLoaded', () => {
         draggedCard.classList.remove('card-landing');
         draggedCard.removeEventListener('animationend', handler);
       });
+
+      // Find new status and position
+      const targetColumn = column.closest('.column');
+      const newStatus = targetColumn.dataset.status;
+      const cards = [...column.querySelectorAll('.card')];
+      const newPosition = cards.indexOf(draggedCard);
+      const cardId = draggedCard.dataset.cardId;
+
+      // Send move to API
+      fetch(`${API_BASE}/api/cards/${cardId}/move`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: newStatus, position: newPosition }),
+      }).catch(err => console.error('Failed to move card:', err));
+
+      updateColumnCounts();
     });
   });
 
