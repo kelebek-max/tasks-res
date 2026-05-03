@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jira Software - Reported by me</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Icon Sidebar -->
+<aside class="icon-sidebar">
+  <div class="icon-sidebar-top">
+    <a href="#" class="icon-sidebar-item logo-item">
+      <i class="fa-solid fa-diamond"></i>
+    </a>
+    <a href="#" class="icon-sidebar-item">
+      <i class="fa-regular fa-star"></i>
+    </a>
+    <a href="#" class="icon-sidebar-item">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </a>
+    <a href="#" class="icon-sidebar-item">
+      <i class="fa-solid fa-plus"></i>
+    </a>
+  </div>
+  <div class="icon-sidebar-bottom">
+    <a href="#" class="icon-sidebar-item notification-item">
+      <i class="fa-solid fa-comment-dots"></i>
+      <span class="notification-badge">9+</span>
+    </a>
+    <a href="#" class="icon-sidebar-item">
+      <i class="fa-solid fa-grip"></i>
+    </a>
+    <a href="#" class="icon-sidebar-item">
+      <i class="fa-regular fa-circle-question"></i>
+    </a>
+    <a href="#" class="icon-sidebar-item avatar-item">
+      <div class="sidebar-avatar"></div>
+    </a>
+  </div>
+</aside>
+
+<!-- Navigation Sidebar -->
+<aside class="nav-sidebar">
+  <div class="nav-sidebar-header">
+    <span class="jira-logo-text">Jira Software</span>
+  </div>
+  <a href="#" class="nav-back-link">
+    <i class="fa-solid fa-arrow-left"></i>
+    Back to main menu
+  </a>
+  <div class="nav-section-title nav-main-title">
+    <i class="fa-solid fa-filter"></i>
+    Issues and filters
+  </div>
+  <a href="#" class="nav-link">Search issues</a>
+
+  <div class="nav-group-label">STARRED</div>
+  <a href="#" class="nav-link">My open issues</a>
+  <a href="#" class="nav-link active">Reported by me</a>
+
+  <div class="nav-group-label">OTHER</div>
+  <a href="#" class="nav-link">All issues</a>
+  <a href="#" class="nav-link">Open issues</a>
+  <a href="#" class="nav-link">Done issues</a>
+  <a href="#" class="nav-link">Viewed recently</a>
+  <a href="#" class="nav-link">Created recently</a>
+  <a href="#" class="nav-link">Resolved recently</a>
+  <a href="#" class="nav-link">Updated recently</a>
+
+  <a href="#" class="nav-link view-all-link">View all filters</a>
+</aside>
+
+<!-- Issue List Panel -->
+<div class="issue-list-panel">
+  <div class="issue-list-header">
+    <h1 class="filter-title">Reported by me</h1>
+    <a href="#" class="save-as-link">Save as</a>
+    <div class="header-actions">
+      <i class="fa-solid fa-star header-star"></i>
+      <i class="fa-solid fa-arrow-up-from-bracket header-icon"></i>
+      <i class="fa-solid fa-table-columns header-icon"></i>
+      <i class="fa-solid fa-ellipsis header-icon"></i>
+    </div>
+  </div>
+  <div class="jql-bar">
+    <span class="jql-check"><i class="fa-solid fa-circle-check"></i></span>
+    <span class="jql-text">reporter = currentUser() order by created DESC</span>
+    <div class="jql-actions">
+      <i class="fa-regular fa-circle-question jql-icon"></i>
+      <i class="fa-solid fa-magnifying-glass jql-icon"></i>
+      <span class="jql-basic">Basic</span>
+      <span class="jql-view-toggle">
+        <i class="fa-solid fa-list"></i>
+        <i class="fa-solid fa-chevron-down"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="order-bar">
+    <span class="order-text">Order by Created</span>
+    <i class="fa-solid fa-arrow-down order-icon"></i>
+    <i class="fa-solid fa-chevron-down order-icon-sm"></i>
+  </div>
+
+  <div class="issue-list">
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-3086</span>
+        <span class="issue-summary">Integration Store: Any search prepends "v. " to version indicator o...</span>
+      </div>
+    </div>
+    <div class="issue-item selected">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-3065</span>
+        <span class="issue-summary">Integration Store: some OS choices in CMS not reflected on catalo...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-3058</span>
+        <span class="issue-summary">Integration Store: CMS: Delete Asset confirmation page button sty...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-3057</span>
+        <span class="issue-summary">Integration Store: CMS: Edit Information page Save refusing to sto...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-3056</span>
+        <span class="issue-summary">Integration Store: CMS: Fields on Edit Information page duplicated...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon blue"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-3055</span>
+        <span class="issue-summary">Integration Store Test Cases</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-3053</span>
+        <span class="issue-summary">Integrations: Page content displays strangely</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-3031</span>
+        <span class="issue-summary">Integrations store search results not reset when text search input i...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-3029</span>
+        <span class="issue-summary">IPVD: Applied filter indicator persists after applying any filter and c...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-2955</span>
+        <span class="issue-summary">IPVD: "Advanced search" label on button should be "Advanced Se...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-2949</span>
+        <span class="issue-summary">IPVD feedback form link to Privacy Policy should point to CMS-co...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-2905</span>
+        <span class="issue-summary">IPVD: applying filter after clicking browser back button to return t...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-2904</span>
+        <span class="issue-summary">IPVD: compound filters including "Camera" device type aren't sele...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-2899</span>
+        <span class="issue-summary">Already logged in dialog shown on Cloud portal when opened fro...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-2895</span>
+        <span class="issue-summary">Systems drop down showing 9&frac12; in list rather than 12</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-2892</span>
+        <span class="issue-summary">Password "Fair" warning does not have a tooltip with description/h...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-2885</span>
+        <span class="issue-summary">Behavior of logging in with "Remember me" unchecked, then rest...</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <span class="issue-status-icon red"></span>
+      <div class="issue-item-content">
+        <span class="issue-key">CLOUD-2883</span>
+        <span class="issue-summary">Already logged in modal dialog body shows "undefined"</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Issue Detail Panel -->
+<div class="issue-detail-panel">
+  <div class="detail-top-bar">
+    <div class="breadcrumb">
+      <span class="breadcrumb-icon blue-sq"></span>
+      <a href="#">Cloud</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="#">CLOUD-2309</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-icon red-sq"></span>
+      <a href="#">CLOUD-3065</a>
+    </div>
+    <div class="detail-pagination">
+      <span class="pagination-text">2 of 28</span>
+      <button class="pagination-btn"><i class="fa-solid fa-chevron-up"></i></button>
+      <button class="pagination-btn"><i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+  </div>
+
+  <div class="detail-content-wrapper">
+    <div class="detail-main">
+      <h2 class="issue-title">Integration Store: some OS choices in CMS not reflected on catalog front-end view</h2>
+
+      <div class="issue-action-bar">
+        <button class="action-btn"><i class="fa-solid fa-paperclip"></i></button>
+        <button class="action-btn"><i class="fa-regular fa-pen-to-square"></i></button>
+        <button class="action-btn"><i class="fa-solid fa-link"></i></button>
+        <button class="action-btn"><i class="fa-regular fa-clone"></i></button>
+      </div>
+
+      <div class="activity-section">
+        <div class="activity-tabs">
+          <span class="activity-tab active">Activity</span>
+          <span class="activity-tab">Comments <i class="fa-solid fa-chevron-down"></i></span>
+        </div>
+
+        <div class="comments-list">
+          <!-- Comment 1 -->
+          <div class="comment">
+            <div class="comment-avatar">
+              <img src="https://ui-avatars.com/api/?name=TT&background=6c8ebf&color=fff&size=36&rounded=true" alt="TT">
+            </div>
+            <div class="comment-body">
+              <div class="comment-header">
+                <span class="comment-author">Tsanko Tsolov</span>
+                <span class="comment-date">May 30, 2019, 5:07 PM</span>
+              </div>
+              <p class="comment-text">we ignore 32/64 bit ... just icon per platform</p>
+              <div class="comment-reactions">
+                <span class="reaction"><span class="reaction-emoji">&#x1F44C;</span> 1</span>
+                <button class="reaction-add"><i class="fa-regular fa-face-smile"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comment 2 -->
+          <div class="comment">
+            <div class="comment-avatar">
+              <img src="https://ui-avatars.com/api/?name=PE&background=6c8ebf&color=fff&size=36&rounded=true" alt="PE">
+            </div>
+            <div class="comment-body">
+              <div class="comment-header">
+                <span class="comment-author">Paul Edwards</span>
+                <span class="comment-date">May 30, 2019, 5:12 PM</span>
+              </div>
+              <p class="comment-text">So then only the macOS icon is missing... Should I update the title/description accordingly?</p>
+              <div class="comment-actions">
+                <a href="#">Edit</a>
+                <span class="comment-action-sep">&middot;</span>
+                <a href="#">Delete</a>
+                <span class="comment-action-sep">&middot;</span>
+                <button class="reaction-add"><i class="fa-regular fa-face-smile"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comment 3 -->
+          <div class="comment">
+            <div class="comment-avatar">
+              <img src="https://ui-avatars.com/api/?name=TT&background=6c8ebf&color=fff&size=36&rounded=true" alt="TT">
+            </div>
+            <div class="comment-body">
+              <div class="comment-header">
+                <span class="comment-author">Tsanko Tsolov</span>
+                <span class="comment-date">June 3, 2019, 5:54 PM</span>
+              </div>
+              <p class="comment-text">Issue was fixed and merged into prod 2019-06-04T00:54:47.940Z</p>
+              <div class="comment-reactions">
+                <button class="reaction-add"><i class="fa-regular fa-face-smile"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comment 4 -->
+          <div class="comment">
+            <div class="comment-avatar">
+              <img src="https://ui-avatars.com/api/?name=PE&background=6c8ebf&color=fff&size=36&rounded=true" alt="PE">
+            </div>
+            <div class="comment-body">
+              <div class="comment-header">
+                <span class="comment-author">Paul Edwards</span>
+                <span class="comment-date">June 3, 2019, 6:36 PM</span>
+              </div>
+              <p class="comment-text">
+                changeset: &nbsp;&nbsp;94746:f00040f54944<br>
+                branch: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cloud_19.1
+              </p>
+              <div class="comment-actions">
+                <a href="#">Edit</a>
+                <span class="comment-action-sep">&middot;</span>
+                <a href="#">Delete</a>
+                <span class="comment-action-sep">&middot;</span>
+                <button class="reaction-add"><i class="fa-regular fa-face-smile"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add comment -->
+        <div class="add-comment">
+          <div class="comment-avatar">
+            <img src="https://ui-avatars.com/api/?name=PE&background=6c8ebf&color=fff&size=36&rounded=true" alt="PE">
+          </div>
+          <div class="add-comment-input">
+            <span class="add-comment-placeholder">Add a comment...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detail Right Sidebar -->
+    <div class="detail-sidebar">
+      <div class="detail-sidebar-header">
+        <button class="back-btn"><i class="fa-solid fa-arrow-left"></i></button>
+        <span class="sidebar-section-label">Additional</span>
+      </div>
+
+      <div class="sidebar-field">
+        <div class="sidebar-field-label">ASSIGNEE</div>
+        <div class="sidebar-field-value assignee-value">
+          <img src="https://ui-avatars.com/api/?name=PE&background=6c8ebf&color=fff&size=24&rounded=true" alt="PE" class="assignee-avatar">
+          <span>Paul Edwards</span>
+        </div>
+      </div>
+
+      <div class="sidebar-field">
+        <div class="sidebar-field-label">DESCRIPTION</div>
+        <div class="sidebar-description-box">
+          <p>I've observed that icons for macOS & ARM64 are not displayed on the Integration Store catalog (front-end) view of an Integration which has these OS targets selected.</p>
+          <div class="description-image">
+            <div class="description-image-placeholder">
+              <i class="fa-regular fa-image"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-field">
+        <div class="sidebar-steps">
+          <strong>Steps:</strong>
+          <ol>
+            <li>Create a new or Edit an existing Integration Asset Information Page content.</li>
+            <li>Select ALL Operating System targets, or at least macOS & ARM64.</li>
+            <li>Submit & Review, then Approve changes.</li>
+            <li>View Integration Store catalog entry for added/modified Integration.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="sidebar-field">
+        <div class="sidebar-expected">
+          <strong>Expected:</strong>
+          <p>Icons for selected Operating System(s) should be visible in upper right corner of Integration tile.</p>
+        </div>
+      </div>
+
+      <div class="sidebar-field">
+        <div class="sidebar-actual">
+          <strong>Actual:</strong>
+          <p>Icons for macOS & ARM64 are NOT</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
