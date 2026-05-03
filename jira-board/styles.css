@@ -294,7 +294,7 @@ a {
   padding: 12px;
   box-shadow: 0 1px 2px rgba(9, 30, 66, 0.15);
   cursor: pointer;
-  transition: background 0.1s, box-shadow 0.1s;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
   border-bottom: none;
 }
 .card[draggable="true"] {
@@ -305,19 +305,61 @@ a {
 }
 .card.dragging {
   opacity: 0.4;
+  transform: scale(0.97);
+  box-shadow: 0 4px 12px rgba(9, 30, 66, 0.25);
+}
+
+.card.card-landing {
+  animation: cardLand 0.3s ease;
+}
+
+@keyframes cardLand {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.6;
+    box-shadow: 0 8px 20px rgba(0, 82, 204, 0.3);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 82, 204, 0.15);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(9, 30, 66, 0.15);
+  }
 }
 
 /* Card-sized placeholder showing where the card will be dropped */
 .drag-placeholder {
-  height: 60px;
+  height: 0;
   background: rgba(0, 82, 204, 0.08);
   border: 2px dashed #0052cc;
   border-radius: 4px;
-  margin: 3px 0;
+  margin: 0;
+  overflow: hidden;
+  animation: placeholderExpand 0.2s ease forwards;
+}
+
+@keyframes placeholderExpand {
+  from {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+  }
+  to {
+    height: 60px;
+    margin: 3px 0;
+    opacity: 1;
+  }
+}
+
+.column-cards {
+  transition: background 0.25s ease;
 }
 
 .column-cards.drag-over {
-  background: rgba(0, 82, 204, 0.04);
+  background: rgba(0, 82, 204, 0.06);
   border-radius: 4px;
   min-height: 60px;
 }
@@ -325,6 +367,7 @@ a {
 .card:hover {
   background: #f4f5f7;
   box-shadow: 0 2px 4px rgba(9, 30, 66, 0.2);
+  transform: translateY(-1px);
 }
 
 .card-title {
