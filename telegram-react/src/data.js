@@ -10,6 +10,11 @@ const chats = [
     preview: "I'll trust you. For now.",
     senderName: 'Darth',
     pinned: true,
+    members: {
+      'Vader': { avatar: 'https://ui-avatars.com/api/?name=DV&background=d32f2f&color=fff&size=36', color: '#d32f2f' },
+      'Darth': { avatar: 'https://ui-avatars.com/api/?name=DS&background=424242&color=fff&size=36', color: '#e53935' },
+      'Palpatine': { avatar: 'https://ui-avatars.com/api/?name=EP&background=6a1b9a&color=fff&size=36', color: '#8e24aa' },
+    },
     messages: [
       { id: 1, type: 'text', text: 'The plans are ready, my lord.', time: '7:10 PM', outgoing: false, sender: 'Vader' },
       { id: 2, type: 'text', text: 'Excellent. Begin construction immediately.', time: '7:12 PM', outgoing: true },
@@ -83,6 +88,11 @@ const chats = [
     preview: 'Photo',
     senderName: 'Eva',
     previewIsMedia: true,
+    members: {
+      'Mike': { avatar: 'https://ui-avatars.com/api/?name=MK&background=1565c0&color=fff&size=36', color: '#1565c0' },
+      'Eva': { avatar: 'https://ui-avatars.com/api/?name=EV&background=2e7d32&color=fff&size=36', color: '#2e7d32' },
+      'Sarah': { avatar: 'https://ui-avatars.com/api/?name=SR&background=c62828&color=fff&size=36', color: '#c62828' },
+    },
     messages: [
       { id: 1, type: 'text', text: 'Team meeting at 3 PM today', time: '12:30 AM', outgoing: false, sender: 'Mike' },
       { id: 2, type: 'text', text: 'Got it, thanks!', time: '12:45 AM', outgoing: true, read: true },
@@ -101,10 +111,44 @@ const chats = [
     time: '0:02 AM',
     preview: 'Yo-ho-ho, all aboard!',
     senderName: 'Jack',
+    members: {
+      'Captain': { avatar: 'https://ui-avatars.com/api/?name=CP&background=4e342e&color=fff&size=36', color: '#4e342e' },
+      'Jack': { avatar: 'https://ui-avatars.com/api/?name=JK&background=bf360c&color=fff&size=36', color: '#bf360c' },
+      'Will': { avatar: 'https://ui-avatars.com/api/?name=WT&background=0d47a1&color=fff&size=36', color: '#0d47a1' },
+    },
     messages: [
       { id: 1, type: 'text', text: 'Set sail at dawn!', time: '11:50 PM', outgoing: false, sender: 'Captain' },
       { id: 2, type: 'text', text: 'Aye aye!', time: '11:55 PM', outgoing: true, read: true },
       { id: 3, type: 'text', text: 'Yo-ho-ho, all aboard!', time: '0:02 AM', outgoing: false, sender: 'Jack' },
+    ]
+  },
+  {
+    id: 10,
+    name: 'Dev Team',
+    avatar: null,
+    initials: 'DT',
+    initialsColor: '#1976d2',
+    isGroup: true,
+    time: '6:45 PM',
+    preview: 'Alex: I can review it now',
+    senderName: 'Alex',
+    members: {
+      'Alex': { avatar: 'https://ui-avatars.com/api/?name=AX&background=1976d2&color=fff&size=36', color: '#1976d2' },
+      'Nina': { avatar: 'https://ui-avatars.com/api/?name=NI&background=ad1457&color=fff&size=36', color: '#ad1457' },
+      'Tom': { avatar: 'https://ui-avatars.com/api/?name=TM&background=00695c&color=fff&size=36', color: '#00695c' },
+      'Kate': { avatar: 'https://ui-avatars.com/api/?name=KT&background=e65100&color=fff&size=36', color: '#e65100' },
+    },
+    messages: [
+      { id: 1, type: 'text', text: 'Hey team, the new build is ready for testing', time: '5:30 PM', outgoing: false, sender: 'Alex' },
+      { id: 2, type: 'text', text: 'Awesome! I found a bug in the login flow though', time: '5:35 PM', outgoing: false, sender: 'Nina' },
+      { id: 3, type: 'text', text: "Can you create a ticket for it?", time: '5:40 PM', outgoing: true, read: true },
+      { id: 4, type: 'text', text: 'Already done! JIRA-2048', time: '5:42 PM', outgoing: false, sender: 'Nina' },
+      { id: 5, type: 'text', text: 'I pushed a hotfix to the staging branch', time: '6:00 PM', outgoing: false, sender: 'Tom' },
+      { id: 6, type: 'file', time: '6:15 PM', outgoing: false, sender: 'Tom', fileName: 'bugfix-report.pdf', fileSize: '3.4 KB' },
+      { id: 7, type: 'text', text: 'Nice work Tom! 🎉', time: '6:20 PM', outgoing: true, read: true },
+      { id: 8, type: 'text', text: 'Should we deploy to production today?', time: '6:30 PM', outgoing: false, sender: 'Kate' },
+      { id: 9, type: 'text', text: "Let's wait for the PR review first", time: '6:35 PM', outgoing: true, read: true },
+      { id: 10, type: 'text', text: 'I can review it now', time: '6:45 PM', outgoing: false, sender: 'Alex' },
     ]
   },
   {

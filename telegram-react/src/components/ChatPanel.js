@@ -12,13 +12,17 @@ function ChatPanel({ chat }) {
 
   if (!chat) return <main className="chat-panel"><div className="no-chat">Select a chat to start messaging</div></main>;
 
+  const messages = chat.messages;
+
   return (
     <main className="chat-panel">
       <div className="chat-header">
         <div className="chat-header-info">
           <div className="chat-header-name">{chat.name}</div>
           <div className="chat-header-status">
-            {chat.isGroup ? `${chat.messages.length} messages` : 'online'}
+            {chat.isGroup
+              ? `${chat.members ? Object.keys(chat.members).length + 1 : ''} members`
+              : 'online'}
           </div>
         </div>
         <div className="chat-header-actions">
@@ -28,9 +32,21 @@ function ChatPanel({ chat }) {
       </div>
 
       <div className="chat-messages" ref={messagesRef}>
-        {chat.messages.map(msg => (
-          <Message key={msg.id} message={msg} />
-        ))}
+        {messages.map((msg, idx) => {
+          const nextMsg = messages[idx + 1];
+          const showAvatar = !msg.outgoing && (
+            !nextMsg || nextMsg.outgoing || nextMsg.sender !== msg.sender
+          );
+          return (
+            <Message
+              key={msg.id}
+              message={msg}
+              isGroup={chat.isGroup}
+              members={chat.members}
+              showAvatar={showAvatar}
+            />
+          );
+        })}
       </div>
 
       <div className="chat-input">
