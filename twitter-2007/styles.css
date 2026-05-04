@@ -1,0 +1,419 @@
+/* =================== Reset =================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, Arial, sans-serif;
+  background: #c0deed;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+a {
+  color: #0084b4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =================== Header =================== */
+.header {
+  background: linear-gradient(180deg, #9ae4e8 0%, #89d6e8 50%, #68c8e0 100%);
+  padding: 10px 0;
+  border-bottom: 1px solid #5bb0c8;
+}
+
+.header-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.logo {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  letter-spacing: -1px;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search-input {
+  padding: 4px 8px;
+  border: 1px solid #999;
+  border-radius: 0;
+  font-size: 12px;
+  color: #999;
+  width: 180px;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  color: #333;
+  outline: none;
+  border-color: #666;
+}
+
+.search-btn {
+  padding: 4px 10px;
+  background: #e8e8e8;
+  border: 1px solid #999;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  color: #333;
+}
+
+.search-btn:hover {
+  background: #ddd;
+}
+
+.header-links {
+  font-size: 12px;
+  color: #fff;
+  margin-left: 8px;
+}
+
+.header-links a {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* =================== Container =================== */
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  padding: 20px 10px;
+}
+
+/* =================== Main Content =================== */
+.main-content {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #c8d8e0;
+  border-radius: 4px;
+  padding: 20px 24px;
+}
+
+/* =================== Profile =================== */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  width: 73px;
+  height: 73px;
+  border: 1px solid #c8c8c8;
+}
+
+.profile-name {
+  font-size: 28px;
+  font-weight: 400;
+  color: #333;
+}
+
+/* =================== Latest Tweet =================== */
+.latest-tweet {
+  margin-bottom: 16px;
+}
+
+.latest-text {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.tweet-meta {
+  font-size: 11px;
+  color: #999;
+}
+
+.tweet-meta a {
+  color: #789922;
+}
+
+.source {
+  color: #999;
+}
+
+.mention {
+  color: #0084b4;
+}
+
+/* =================== Divider =================== */
+.divider {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 16px 0;
+}
+
+/* =================== Tabs =================== */
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0;
+}
+
+.tab {
+  padding: 6px 16px;
+  font-size: 13px;
+  color: #555;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background: #f5f5f5;
+  margin-right: -1px;
+  border-radius: 4px 4px 0 0;
+}
+
+.tab:hover {
+  text-decoration: none;
+  background: #eee;
+}
+
+.tab.active {
+  background: #fff;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+  font-weight: 700;
+}
+
+/* =================== Tweet List =================== */
+.tweet-list {
+  margin-bottom: 20px;
+}
+
+.tweet {
+  padding: 10px 0;
+  border-bottom: 1px solid #e8e8e8;
+  line-height: 1.5;
+}
+
+.tweet:last-child {
+  border-bottom: none;
+}
+
+.tweet-text {
+  font-size: 13px;
+  color: #333;
+}
+
+.tweet .tweet-meta {
+  margin-left: 4px;
+}
+
+/* =================== Bottom Nav =================== */
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.rss-btn {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #555;
+  background: #f5f5f5;
+  text-decoration: none;
+}
+
+.rss-btn:hover {
+  text-decoration: none;
+  background: #eee;
+}
+
+.older-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0084b4;
+}
+
+/* =================== Sidebar =================== */
+.sidebar {
+  width: 200px;
+  min-width: 200px;
+  margin-left: 16px;
+}
+
+.sidebar-section {
+  background: #ffffcc;
+  border: 1px solid #e8d880;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.sidebar-heading {
+  background: #f0e868;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #555;
+  border-bottom: 1px solid #e8d880;
+}
+
+/* =================== About =================== */
+.about-info {
+  padding: 8px 10px;
+}
+
+.about-info p {
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: #555;
+}
+
+.about-info strong {
+  color: #0084b4;
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.about-info span {
+  color: #333;
+  font-style: italic;
+}
+
+.about-info a {
+  color: #0084b4;
+  font-style: italic;
+}
+
+/* =================== Stats =================== */
+.stats-table {
+  width: 100%;
+  padding: 8px 10px;
+  border-collapse: collapse;
+}
+
+.stats-table td {
+  padding: 2px 0;
+  font-size: 12px;
+}
+
+.stats-table td a {
+  color: #0084b4;
+  font-weight: 700;
+}
+
+.stat-num {
+  text-align: right;
+  color: #333;
+  font-weight: 400;
+}
+
+/* =================== Following Grid =================== */
+.following-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 8px 8px 4px;
+}
+
+.following-grid img {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #ddd;
+}
+
+.view-all {
+  display: block;
+  padding: 4px 10px 8px;
+  font-size: 11px;
+  color: #0084b4;
+}
+
+/* =================== Join =================== */
+.join-section {
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.join-btn {
+  display: inline-block;
+  padding: 8px 40px;
+  background: #4caf50;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 8px;
+  border: 1px solid #3a9a3e;
+}
+
+.join-btn:hover {
+  text-decoration: none;
+  background: #43a047;
+}
+
+.join-text {
+  font-size: 11px;
+  color: #555;
+  margin-top: 6px;
+}
+
+.join-text a {
+  color: #0084b4;
+}
+
+/* =================== Footer =================== */
+.footer {
+  background: #c0deed;
+  padding: 16px 0;
+  border-top: 1px solid #a0c8d8;
+  margin-top: 20px;
+}
+
+.footer-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+}
+
+.footer-inner a {
+  color: #0084b4;
+  margin-left: 12px;
+  font-weight: 700;
+}
+
+.footer-inner span {
+  margin-right: 12px;
+}
