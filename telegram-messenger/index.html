@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Messenger</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="app">
+    <!-- =================== Sidebar =================== -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search">
+        </div>
+      </div>
+
+      <div class="chat-list">
+        <!-- Death Star 3.0 -->
+        <div class="chat-item">
+          <div class="chat-avatar">
+            <img src="https://ui-avatars.com/api/?name=DS&background=5c6bc0&color=fff&size=50" alt="">
+          </div>
+          <div class="chat-info">
+            <div class="chat-top">
+              <span class="chat-name"><i class="fa-solid fa-users fa-xs"></i> Death Star 3.0</span>
+              <span class="chat-time">7:15 PM</span>
+            </div>
+            <div class="chat-bottom">
+              <span class="chat-preview"><span class="sender-name">Darth:</span> I'll trust you. For now.</span>
+              <i class="fa-solid fa-thumbtack chat-pin"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Eva Summer (active) -->
+        <div class="chat-item active">
+          <div class="chat-avatar">
+            <div class="avatar-initials" style="background: #4caf50;">ES</div>
+          </div>
+          <div class="chat-info">
+            <div class="chat-top">
+              <span class="chat-name">Eva Summer</span>
+              <span class="chat-time">11:28 PM</span>
+            </div>
+            <div class="chat-bottom">
+              <span class="chat-preview">Reminds me of a Chinese prove...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lena Oxton -->
+        <div class="chat-item">
+          <div class="chat-avatar">
+            <img src="https://ui-avatars.com/api/?name=LO&background=e91e63&color=fff&size=50" alt="">
+          </div>
+          <div class="chat-info">
+            <div class="chat-top">
+              <span class="chat-name">Lena Oxton</span>
+              <span class="chat-time"><i class="fa-solid fa-check-double read"></i> 9:17 PM</span>
+            </div>
+            <div class="chat-bottom">
+              <span class="chat-preview">😊 <span class="preview-media">Sticker</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mom -->
+        <div class="chat-item">
+          <div class="chat-avatar">
+            <img src="https://ui-avatars.com/api/?name=Mom&background=ff9800&color=fff&size=50" alt="">
+          </div>
+          <div class="chat-info">
+            <div class="chat-top">
+              <span class="chat-name">Mom</span>
+              <span class="chat-time">8:02 PM</span>
+            </div>
+            <div class="chat-bottom">
+              <span class="chat-preview">Don't forget your blaster and helmet</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pandas HQ -->
+        <div class="chat-item">
+          <div class="chat-avatar">
+            <img src="https://ui-avatars.com/api/?name=PH&background=009688&color=fff&size=50" alt="">
+          </div>
+          <div class="chat-info">
+            <div class="chat-top">
+              <span class="chat-name"><i class="fa-solid fa-users fa-xs"></i> Pandas HQ</span>
+              <span class="chat-time">1:14 AM</span>
+            </div>
+            <div class="chat-bottom">
+              <span class="chat-preview"><span class="sender-name">Eva:</span> <span class="preview-media">Photo</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Old Pirates -->
+        <div class="chat-item">
+          <div class="chat-avatar">
+            <img src="https://ui-avatars.com/api/?name=OP&background=795548&color=fff&size=50" alt="">
+          </div>
+          <div class="chat-info">
+            <div class="chat-top">
+              <span class="chat-name"><i class="fa-solid fa-users fa-xs"></i> Old Pirates</span>
+              <span class="chat-time">0:02 AM</span>
+            </div>
+            <div class="chat-bottom">
+              <span class="chat-preview"><span class="sender-name">Jack:</span> Yo-ho-ho, all aboard!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Max Bright -->
+        <div class="chat-item">
+          <div class="chat-avatar">
+            <div class="avatar-initials" style="background: #4caf50;">MB</div>
+          </div>
+          <div class="chat-info">
+            <div class="chat-top">
+              <span class="chat-name">Max Bright</span>
+              <span class="chat-time"><i class="fa-solid fa-check-double read"></i> Mon</span>
+            </div>
+            <div class="chat-bottom">
+              <span class="chat-preview">Coffee time? ☕</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lee -->
+        <div class="chat-item">
+          <div class="chat-avatar">
+            <img src="https://ui-avatars.com/api/?name=Lee&background=3f51b5&color=fff&size=50" alt="">
+          </div>
+          <div class="chat-info">
+            <div class="chat-top">
+              <span class="chat-name">Lee</span>
+              <span class="chat-time">Mon</span>
+            </div>
+            <div class="chat-bottom">
+              <span class="chat-preview">We can call it Galaxy Star 7 ;)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alexandra Z -->
+        <div class="chat-item">
+          <div class="chat-avatar">
+            <img src="https://ui-avatars.com/api/?name=AZ&background=9c27b0&color=fff&size=50" alt="">
+          </div>
+          <div class="chat-info">
+            <div class="chat-top">
+              <span class="chat-name">Alexandra Z</span>
+              <span class="chat-time">Mon</span>
+            </div>
+            <div class="chat-bottom">
+              <span class="chat-preview"><span class="preview-media">Workout_Shedule.pdf</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- =================== Chat Panel =================== -->
+    <main class="chat-panel">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-header-name">Eva Summer</div>
+          <div class="chat-header-status">online</div>
+        </div>
+        <div class="chat-header-actions">
+          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        </div>
+      </div>
+
+      <div class="chat-messages">
+        <!-- Photo message (incoming) -->
+        <div class="message incoming">
+          <div class="message-bubble photo-message">
+            <div class="message-photo">
+              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=250&fit=crop" alt="Nature">
+            </div>
+            <div class="message-photo-caption">
+              <span>I finally visited Earth.. The nature here is fantastic!</span>
+              <span class="message-time">11:23 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice message (outgoing) -->
+        <div class="message outgoing">
+          <div class="message-bubble voice-message">
+            <button class="voice-play"><i class="fa-solid fa-play"></i></button>
+            <div class="voice-waveform">
+              <div class="waveform-track">
+                <div class="waveform-dots"></div>
+              </div>
+              <span class="voice-duration">00:07</span>
+            </div>
+            <span class="message-time">11:24 PM <i class="fa-solid fa-check-double read"></i></span>
+          </div>
+        </div>
+
+        <!-- File message (incoming) -->
+        <div class="message incoming">
+          <div class="message-bubble file-message">
+            <div class="file-icon">
+              <i class="fa-solid fa-arrow-down"></i>
+            </div>
+            <div class="file-info">
+              <span class="file-name">First Impression.pdf</span>
+              <span class="file-size">11.2 KB</span>
+            </div>
+            <span class="message-time">11:27 PM</span>
+          </div>
+        </div>
+
+        <!-- Long text message (outgoing) -->
+        <div class="message outgoing">
+          <div class="message-bubble">
+            <p>Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails.</p>
+            <span class="message-time">11:28 PM <i class="fa-solid fa-check-double read"></i></span>
+          </div>
+        </div>
+
+        <!-- Short text message (outgoing) -->
+        <div class="message outgoing">
+          <div class="message-bubble">
+            <p>Mark Twain said that ☝</p>
+            <span class="message-time">11:28 PM <i class="fa-solid fa-check-double read"></i></span>
+          </div>
+        </div>
+
+        <!-- Reply message (incoming) -->
+        <div class="message incoming">
+          <div class="message-bubble">
+            <div class="reply-block">
+              <span class="reply-name">Mary Sue</span>
+              <span class="reply-text">Twenty years from now you will be more disappointed by t...</span>
+            </div>
+            <p>Reminds me of a Chinese proverb: the best time to plant a tree was 20 years ago. The second best time is now.</p>
+            <span class="message-time">11:28 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <button class="input-action"><i class="fa-solid fa-paperclip"></i></button>
+        <input type="text" placeholder="Write a message...">
+        <button class="input-action"><i class="fa-regular fa-face-smile"></i></button>
+        <button class="input-action"><i class="fa-solid fa-microphone"></i></button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
