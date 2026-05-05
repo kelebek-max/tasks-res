@@ -11,17 +11,17 @@
     <!-- Header -->
     <header class="top-header">
         <div class="header-inner">
-            <a href="#" class="logo">вКонтакте</a>
+            <a href="#" class="logo"><span class="logo-v">в</span>Контакте</a>
             <div class="search-wrap">
+                <span class="search-icon"><i class="fas fa-search"></i></span>
                 <input type="text" class="search-input" placeholder="Поиск">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
             </div>
             <nav class="header-nav">
                 <a href="#">люди</a>
                 <a href="#">сообщества</a>
                 <a href="#">игры</a>
                 <a href="#">музыка</a>
-                <a href="#" class="nav-arrow"><i class="fas fa-play"></i></a>
+                <a href="#" class="nav-arrow">&#9654;</a>
                 <a href="#">помощь</a>
                 <a href="#">выйти</a>
             </nav>
@@ -33,7 +33,7 @@
         <!-- Left Sidebar -->
         <aside class="left-sidebar">
             <ul class="side-menu">
-                <li><a href="#">Моя Страница</a> <a href="#" class="edit-link">ред.</a></li>
+                <li><a href="#" class="active">Моя Страница</a> <a href="#" class="edit-link">ред.</a></li>
                 <li><a href="#">Мои Друзья</a></li>
                 <li><a href="#">Мои Фотографии</a></li>
                 <li><a href="#">Мои Видеозаписи</a></li>
@@ -56,7 +56,7 @@
         <div class="content-area">
             <!-- Page Title -->
             <div class="page-title">
-                Павел Дуров <span class="verified"><i class="fas fa-check-circle"></i></span>
+                Павел Дуров <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='8' fill='%234a76a8'/%3E%3Cpath d='M5 8l2.5 2.5L11 6' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" alt="verified" class="verified-badge">
             </div>
 
             <div class="profile-layout">
@@ -69,15 +69,17 @@
                     <button class="subscribe-btn">Подписаться</button>
 
                     <div class="subscribers-row">
-                        Подписчики Павла <span class="sub-count">6 108 996</span> <i class="fas fa-user"></i>
+                        <span class="sub-label">Подписчики Павла</span>
+                        <a href="#" class="sub-count">6 108 996</a>
+                        <i class="fas fa-user sub-icon"></i>
                     </div>
 
-                    <div class="gift-row">
+                    <a href="#" class="gift-row">
                         <i class="fas fa-gift"></i> Отправить подарок
-                    </div>
+                    </a>
 
                     <!-- Friends Block -->
-                    <div class="block-section">
+                    <div class="block-section friends-section">
                         <div class="block-header">
                             <span class="block-title">Друзья</span>
                             <a href="#" class="block-link">новости</a>
@@ -85,28 +87,28 @@
                         <div class="friends-count">719 друзей</div>
                         <div class="friends-grid">
                             <div class="friend-item">
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-                                <span class="friend-name">Семён Файфман</span>
+                                <a href="#"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt=""></a>
+                                <a href="#" class="friend-name">Семён<br>Файфман</a>
                             </div>
                             <div class="friend-item">
-                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
-                                <span class="friend-name">Дарья Сибирева</span>
+                                <a href="#"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt=""></a>
+                                <a href="#" class="friend-name">Дарья<br>Сибирева</a>
                             </div>
                             <div class="friend-item">
-                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
-                                <span class="friend-name">Рома Бойкий</span>
+                                <a href="#"><img src="https://randomuser.me/api/portraits/men/75.jpg" alt=""></a>
+                                <a href="#" class="friend-name">Рома<br>Бойкий</a>
                             </div>
                             <div class="friend-item">
-                                <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="">
-                                <span class="friend-name">Юлия Пушка-Шабаш</span>
+                                <a href="#"><img src="https://randomuser.me/api/portraits/women/22.jpg" alt=""></a>
+                                <a href="#" class="friend-name">Юлия<br>Пушка-Шабаш</a>
                             </div>
                             <div class="friend-item">
-                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
-                                <span class="friend-name">Иван Фефер</span>
+                                <a href="#"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt=""></a>
+                                <a href="#" class="friend-name">Иван<br>Фефер</a>
                             </div>
                             <div class="friend-item">
-                                <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="">
-                                <span class="friend-name">Дмитрий Павлов</span>
+                                <a href="#"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt=""></a>
+                                <a href="#" class="friend-name">Дмитрий<br>Павлов</a>
                             </div>
                         </div>
                     </div>
@@ -121,7 +123,7 @@
                         <table class="info-table">
                             <tr>
                                 <td class="info-label">День рождения:</td>
-                                <td class="info-value">10 октября 1984 г.</td>
+                                <td class="info-value"><a href="#">10 октября 1984 г.</a></td>
                             </tr>
                             <tr>
                                 <td class="info-label">Место работы:</td>
@@ -129,29 +131,29 @@
                             </tr>
                             <tr>
                                 <td class="info-label">Языки:</td>
-                                <td class="info-value">Русский, English, Fran&ccedil;ais, Deutsch, Espa&ntilde;ol, Italiano, Lingua Latina</td>
+                                <td class="info-value"><a href="#">Русский</a>, <a href="#">English</a>, <a href="#">Fran&ccedil;ais</a>, <a href="#">Deutsch</a>, <a href="#">Espa&ntilde;ol</a>, <a href="#">Italiano</a>, <a href="#">Lingua Latina</a></td>
                             </tr>
                         </table>
                         <a href="#" class="show-more-info">Показать подробную информацию</a>
                     </div>
 
                     <!-- Photos Block -->
-                    <div class="block-section">
+                    <div class="block-section photos-section">
                         <div class="block-header">
-                            <span class="block-title">222 фотографии</span>
+                            <span class="block-title"><a href="#">222 фотографии</a></span>
                             <a href="#" class="block-link">все</a>
                         </div>
                         <div class="photos-grid">
-                            <img src="https://picsum.photos/seed/vk1/120/90" alt="">
-                            <img src="https://picsum.photos/seed/vk2/120/90" alt="">
-                            <img src="https://picsum.photos/seed/vk3/120/90" alt="">
-                            <img src="https://picsum.photos/seed/vk4/120/90" alt="">
-                            <img src="https://picsum.photos/seed/vk5/120/90" alt="">
+                            <a href="#"><img src="https://picsum.photos/seed/vk1/120/90" alt=""></a>
+                            <a href="#"><img src="https://picsum.photos/seed/vk2/120/90" alt=""></a>
+                            <a href="#"><img src="https://picsum.photos/seed/vk3/120/90" alt=""></a>
+                            <a href="#"><img src="https://picsum.photos/seed/vk4/120/90" alt=""></a>
+                            <a href="#"><img src="https://picsum.photos/seed/vk5/120/90" alt=""></a>
                         </div>
                     </div>
 
                     <!-- Posts Section -->
-                    <div class="block-section">
+                    <div class="block-section posts-section">
                         <div class="block-header">
                             <span class="block-title">212 записей</span>
                         </div>
@@ -159,33 +161,31 @@
                         <!-- Post -->
                         <div class="wall-post">
                             <div class="post-header">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" class="post-avatar">
+                                <a href="#"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" class="post-avatar"></a>
                                 <a href="#" class="post-author">Павел Дуров</a>
                             </div>
                             <div class="post-video">
-                                <img src="https://picsum.photos/seed/durov-video/510/290" alt="" class="video-thumb">
-                                <div class="video-play"><i class="fas fa-play"></i></div>
+                                <img src="https://picsum.photos/seed/durov-interview/510/290" alt="" class="video-thumb">
+                                <div class="video-play">&#9654;</div>
                                 <span class="video-duration">1:18</span>
                             </div>
                             <div class="post-video-info">
                                 <i class="fas fa-tv post-video-icon"></i>
-                                <div class="post-video-text">
-                                    <a href="#" class="post-video-title">Telegram founder: Opening 'back door' to encrypted apps could aid terrorists</a>
-                                    <span class="post-video-views">203 310 просмотров</span>
-                                </div>
+                                <a href="#" class="post-video-title">Telegram founder: Opening 'back door' to encrypted apps could aid terrorists</a>
+                                <span class="post-video-views">203 310 просмотров</span>
                             </div>
                             <div class="post-footer">
                                 <span class="post-date">25 фев в 19:32</span>
                                 <div class="post-actions">
-                                    <span class="post-action"><i class="fas fa-comment"></i> 537</span>
-                                    <span class="post-action">Мне нравится <i class="fas fa-heart"></i> 18015</span>
+                                    <a href="#" class="post-action"><i class="fas fa-comment action-icon-comment"></i> <span class="action-count">537</span></a>
+                                    <a href="#" class="post-action">Мне нравится <i class="fas fa-heart action-icon-heart"></i> <span class="action-count">18015</span></a>
                                 </div>
                             </div>
-                            <div class="post-comments-link">
+                            <a href="#" class="post-comments-link">
                                 Показать последние 100 комментариев из 46815
-                            </div>
+                            </a>
                             <div class="comment-item">
-                                <img src="https://randomuser.me/api/portraits/men/61.jpg" alt="" class="comment-avatar">
+                                <a href="#"><img src="https://randomuser.me/api/portraits/men/61.jpg" alt="" class="comment-avatar"></a>
                                 <div class="comment-body">
                                     <a href="#" class="comment-author">Михаил Огинский</a>
                                 </div>
