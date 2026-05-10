@@ -9,7 +9,12 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.courier.app.R
+import com.courier.app.data.api.DeliveryApiService
+import com.courier.app.data.api.MockDeliveryApiService
+import com.courier.app.data.model.DeliveryPoint
+import com.courier.app.data.model.PointStatus
 import com.courier.app.databinding.FragmentMapBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -17,10 +22,11 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
-import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
 
 class MapFragment : Fragment() {
@@ -31,6 +37,15 @@ class MapFragment : Fragment() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var locationCallback: LocationCallback? = null
     private var locationMarker: Marker? = null
+
+    private val apiService: DeliveryApiService = MockDeliveryApiService()
+    private val deliveryMarkers = mutableListOf<Marker>()
+    private var fetchPointsJob: Job? = null
+    private var lastFetchLocation: GeoPoint? = null
+
+    companion object {
+        private const val MIN_DISTANCE_TO_REFETCH_METERS = 200.0
+    }
 
     private val locationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -116,7 +131,9 @@ class MapFragment : Fragment() {
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(result: LocationResult) {
                 result.lastLocation?.let { location ->
-                    updateLocationOnMap(GeoPoint(location.latitude, location.longitude))
+                    val currentPoint = GeoPoint(location.latitude, location.longitude)
+                    updateLocationOnMap(currentPoint)
+                    fetchDeliveryPointsIfNeeded(currentPoint)
                 }
             }
         }
@@ -131,10 +148,65 @@ class MapFragment : Fragment() {
                     val point = GeoPoint(it.latitude, it.longitude)
                     updateLocationOnMap(point)
                     binding.mapView.controller.animateTo(point)
+                    fetchDeliveryPointsIfNeeded(point)
                 }
             }
         } catch (e: SecurityException) {
             e.printStackTrace()
+        }
+    }
+
+    private fun fetchDeliveryPointsIfNeeded(currentLocation: GeoPoint) {
+        val lastLocation = lastFetchLocation
+        if (lastLocation != null) {
+            val distance = currentLocation.distanceToAsDouble(lastLocation)
+            if (distance < MIN_DISTANCE_TO_REFETCH_METERS) return
+        }
+
+        lastFetchLocation = currentLocation
+        fetchPointsJob?.cancel()
+        fetchPointsJob = viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val points = apiService.getDeliveryPoints(
+                    currentLocation.latitude,
+                    currentLocation.longitude
+                )
+                updateDeliveryMarkers(points)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun updateDeliveryMarkers(points: List<DeliveryPoint>) {
+        deliveryMarkers.forEach { marker ->
+            binding.mapView.overlays.remove(marker)
+        }
+        deliveryMarkers.clear()
+
+        points.forEach { point ->
+            val marker = Marker(binding.mapView).apply {
+                position = GeoPoint(point.latitude, point.longitude)
+                setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+                title = point.address
+                snippet = "${point.clientName} • ${point.estimatedTime}"
+                icon = ContextCompat.getDrawable(
+                    requireContext(),
+                    getMarkerIcon(point.status)
+                )
+            }
+            deliveryMarkers.add(marker)
+            binding.mapView.overlays.add(marker)
+        }
+
+        binding.mapView.invalidate()
+    }
+
+    private fun getMarkerIcon(status: PointStatus): Int {
+        return when (status) {
+            PointStatus.PENDING -> R.drawable.ic_delivery_point
+            PointStatus.IN_PROGRESS -> R.drawable.ic_delivery_active
+            PointStatus.DELIVERED -> R.drawable.ic_delivery_done
         }
     }
 
@@ -181,6 +253,7 @@ class MapFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        fetchPointsJob?.cancel()
         _binding = null
     }
 }
