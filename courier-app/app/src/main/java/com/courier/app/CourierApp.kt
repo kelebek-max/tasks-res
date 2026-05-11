@@ -17,9 +17,9 @@ class CourierApp : Application() {
             tileCacheDir.mkdirs()
         }
         osmConfig.osmdroidTileCache = tileCacheDir
-        osmConfig.tileFileSystemCacheMaxBytes = 200L * 1024 * 1024 // 200 MB
-        osmConfig.tileFileSystemCacheTrimBytes = 150L * 1024 * 1024 // trim to 150 MB
-        osmConfig.expirationOverrideDuration = 30L * 24 * 60 * 60 * 1000 // 30 days
+        osmConfig.tileFileSystemCacheMaxBytes = 200L * 1024 * 1024
+        osmConfig.tileFileSystemCacheTrimBytes = 150L * 1024 * 1024
+        osmConfig.expirationOverrideDuration = 30L * 24 * 60 * 60 * 1000
         osmConfig.tileDownloadMaxQueueSize = 20
         osmConfig.tileDownloadThreads = 4
     }

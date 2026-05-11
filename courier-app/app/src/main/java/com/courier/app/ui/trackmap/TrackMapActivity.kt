@@ -1,5 +1,8 @@
 package com.courier.app.ui.trackmap
 
+import android.content.res.Configuration
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
 import android.location.Location
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -33,6 +36,7 @@ class TrackMapActivity : AppCompatActivity() {
 
         binding.trackMapView.setTileSource(TileSourceFactory.MAPNIK)
         binding.trackMapView.setMultiTouchControls(true)
+        applyMapTheme()
 
         val pointsJson = intent.getStringExtra(EXTRA_POINTS_JSON) ?: "[]"
         val startTime = intent.getLongExtra(EXTRA_START_TIME, 0L)
@@ -129,6 +133,27 @@ class TrackMapActivity : AppCompatActivity() {
             return totalMeters / 1000.0
         } catch (e: Exception) {
             return 0.0
+        }
+    }
+
+    private fun applyMapTheme() {
+        val nightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        if (nightMode == Configuration.UI_MODE_NIGHT_YES) {
+            val invertMatrix = ColorMatrix(floatArrayOf(
+                -1f, 0f, 0f, 0f, 255f,
+                0f, -1f, 0f, 0f, 255f,
+                0f, 0f, -1f, 0f, 255f,
+                0f, 0f, 0f, 1f, 0f
+            ))
+            val darkenMatrix = ColorMatrix().apply {
+                setScale(0.85f, 0.85f, 0.9f, 1f)
+            }
+            invertMatrix.postConcat(darkenMatrix)
+            binding.trackMapView.overlayManager.tilesOverlay.setColorFilter(
+                ColorMatrixColorFilter(invertMatrix)
+            )
+        } else {
+            binding.trackMapView.overlayManager.tilesOverlay.setColorFilter(null)
         }
     }
 

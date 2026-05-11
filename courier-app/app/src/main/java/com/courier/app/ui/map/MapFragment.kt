@@ -6,6 +6,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import android.content.pm.PackageManager
+import android.content.res.Configuration
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
 import android.os.Bundle
 import android.os.IBinder
 import android.view.LayoutInflater
@@ -161,6 +164,28 @@ class MapFragment : Fragment() {
         binding.mapView.setMultiTouchControls(true)
         binding.mapView.controller.setZoom(15.0)
         binding.mapView.controller.setCenter(GeoPoint(59.9426, 30.3183))
+        applyMapTheme()
+    }
+
+    private fun applyMapTheme() {
+        val nightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        if (nightMode == Configuration.UI_MODE_NIGHT_YES) {
+            val invertMatrix = ColorMatrix(floatArrayOf(
+                -1f, 0f, 0f, 0f, 255f,
+                0f, -1f, 0f, 0f, 255f,
+                0f, 0f, -1f, 0f, 255f,
+                0f, 0f, 0f, 1f, 0f
+            ))
+            val darkenMatrix = ColorMatrix().apply {
+                setScale(0.85f, 0.85f, 0.9f, 1f)
+            }
+            invertMatrix.postConcat(darkenMatrix)
+            binding.mapView.overlayManager.tilesOverlay.setColorFilter(
+                ColorMatrixColorFilter(invertMatrix)
+            )
+        } else {
+            binding.mapView.overlayManager.tilesOverlay.setColorFilter(null)
+        }
     }
 
     private fun setupLocationButton() {
