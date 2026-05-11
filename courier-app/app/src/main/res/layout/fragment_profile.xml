@@ -10,17 +10,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <!-- Header -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="?attr/colorPrimaryContainer"
-        android:padding="32dp">
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="?attr/colorPrimaryContainer"
+            android:padding="32dp">
 
             <ImageView
-                android:id="@+id/profile_avatar"
+                android:id="@+id/profileAvatar"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:background="@drawable/avatar_bg"
@@ -30,6 +30,7 @@
                 android:contentDescription="Аватар" />
 
             <TextView
+                android:id="@+id/profileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/courier_name"
@@ -39,6 +40,7 @@
                 android:layout_marginTop="12dp" />
 
             <TextView
+                android:id="@+id/profileRole"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/courier_role"
@@ -65,13 +67,14 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/ratingValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4.9"
                     android:textColor="?attr/colorOnSurface"
                     android:textSize="24sp"
                     android:textStyle="bold" />
-    
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -89,13 +92,14 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/deliveriesValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1 247"
+                    android:text="0"
                     android:textColor="?attr/colorOnSurface"
                     android:textSize="24sp"
                     android:textStyle="bold" />
-    
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -113,21 +117,47 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/totalPointsValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/status_online"
-                    android:textColor="?attr/colorPrimary"
-                    android:textSize="16sp"
+                    android:text="0"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/status_label"
+                    android:text="Точек записано"
                     android:textColor="?attr/colorOnSurfaceVariant"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp" />
             </LinearLayout>
+        </LinearLayout>
+
+        <!-- Status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="?attr/colorSurfaceVariant"
+            android:padding="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/status_dot" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status_online"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
 
     </LinearLayout>
