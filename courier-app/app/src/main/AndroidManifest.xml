@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -27,6 +30,11 @@
 
         <activity
             android:name=".ui.trackmap.TrackMapActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".service.TrackingService"
+            android:foregroundServiceType="location"
             android:exported="false" />
     </application>
 </manifest>

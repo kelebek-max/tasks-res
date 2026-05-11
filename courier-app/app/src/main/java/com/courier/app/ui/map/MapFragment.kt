@@ -1,8 +1,13 @@
 package com.courier.app.ui.map
 
 import android.Manifest
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.IBinder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.courier.app.service.TrackingService
 import com.courier.app.R
 import com.courier.app.data.api.DeliveryApiService
 import com.courier.app.data.api.MockDeliveryApiService
@@ -45,6 +51,39 @@ class MapFragment : Fragment() {
     private val trackPoints = mutableListOf<GeoPoint>()
 
     private var isRecordingTrack = false
+
+    private var trackingService: TrackingService? = null
+    private var serviceBound = false
+
+    private val serviceConnection = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            val binder = service as TrackingService.TrackingBinder
+            trackingService = binder.getService()
+            serviceBound = true
+
+            trackingService?.onLocationUpdate = { point ->
+                activity?.runOnUiThread {
+                    trackPoints.add(point)
+                    updateTrackLine()
+                }
+            }
+
+            if (trackingService?.isCurrentlyTracking() == true) {
+                isRecordingTrack = true
+                binding.fabStartTrack.setImageResource(R.drawable.ic_stop_track)
+                val existingPoints = trackingService?.getTrackPoints() ?: emptyList()
+                trackPoints.clear()
+                trackPoints.addAll(existingPoints)
+                updateTrackLine()
+            }
+        }
+
+        override fun onServiceDisconnected(name: ComponentName?) {
+            trackingService?.onLocationUpdate = null
+            trackingService = null
+            serviceBound = false
+        }
+    }
 
     private var lastLocationTime: Long = 0
     private var lastLocationPoint: GeoPoint? = null
@@ -111,6 +150,12 @@ class MapFragment : Fragment() {
         setupCommentButton()
         setupStartTrackButton()
         checkAndRequestPermissions()
+        bindTrackingService()
+    }
+
+    private fun bindTrackingService() {
+        val intent = Intent(requireContext(), TrackingService::class.java)
+        requireContext().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
     }
 
     private fun setupMap() {
@@ -147,8 +192,14 @@ class MapFragment : Fragment() {
             isRecordingTrack = false
             binding.fabStartTrack.setImageResource(R.drawable.ic_start_track)
 
-            onTrackCompleted?.invoke(trackPoints.toList(), pendingComment)
+            val points = trackingService?.getTrackPoints() ?: trackPoints.toList()
+            onTrackCompleted?.invoke(points, pendingComment)
             pendingComment = ""
+
+            val stopIntent = Intent(requireContext(), TrackingService::class.java).apply {
+                action = TrackingService.ACTION_STOP
+            }
+            requireContext().startService(stopIntent)
         } else {
             isRecordingTrack = true
             binding.fabStartTrack.setImageResource(R.drawable.ic_stop_track)
@@ -156,6 +207,15 @@ class MapFragment : Fragment() {
             trackPoints.clear()
             pendingComment = ""
             updateTrackLine()
+
+            val startIntent = Intent(requireContext(), TrackingService::class.java).apply {
+                action = TrackingService.ACTION_START
+            }
+            ContextCompat.startForegroundService(requireContext(), startIntent)
+
+            if (!serviceBound) {
+                bindTrackingService()
+            }
 
             if (hasLocationPermission()) {
                 centerOnCurrentLocation()
@@ -409,6 +469,11 @@ class MapFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         fetchPointsJob?.cancel()
+        if (serviceBound) {
+            trackingService?.onLocationUpdate = null
+            requireContext().unbindService(serviceConnection)
+            serviceBound = false
+        }
         _binding = null
     }
 }
