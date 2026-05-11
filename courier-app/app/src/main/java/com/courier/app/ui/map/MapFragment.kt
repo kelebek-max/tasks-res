@@ -24,6 +24,7 @@ import com.courier.app.service.TrackingService
 import com.courier.app.R
 import com.courier.app.data.api.DeliveryApiService
 import com.courier.app.data.api.MockDeliveryApiService
+import com.courier.app.data.api.TrackUploadService
 import com.courier.app.data.model.DeliveryPoint
 import com.courier.app.data.model.PointStatus
 import com.courier.app.databinding.FragmentCommentSheetBinding
@@ -242,6 +243,22 @@ class MapFragment : Fragment() {
 
             if (hasLocationPermission()) {
                 centerOnCurrentLocation()
+                notifyTrackStarted()
+            }
+        }
+    }
+
+    @android.annotation.SuppressLint("MissingPermission")
+    private fun notifyTrackStarted() {
+        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+            location?.let {
+                viewLifecycleOwner.lifecycleScope.launch {
+                    TrackUploadService.notifyTrackStarted(
+                        it.latitude,
+                        it.longitude,
+                        System.currentTimeMillis()
+                    )
+                }
             }
         }
     }
