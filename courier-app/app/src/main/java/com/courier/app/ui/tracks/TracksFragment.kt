@@ -14,6 +14,7 @@ import com.courier.app.data.database.TrackDatabase
 import com.courier.app.data.model.TrackEntity
 import com.courier.app.databinding.FragmentTracksBinding
 import kotlinx.coroutines.launch
+import android.location.Location
 import org.json.JSONArray
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -80,7 +81,10 @@ class TracksFragment : Fragment() {
             0
         }
 
+        val distanceKm = calculateDistanceKm(track.pointsJson)
+
         view.findViewById<TextView>(R.id.trackDate).text = startTime
+        view.findViewById<TextView>(R.id.trackDistance).text = String.format("%.2f км", distanceKm)
         view.findViewById<TextView>(R.id.trackPointsCount).text = "$pointsCount точек"
 
         val commentView = view.findViewById<TextView>(R.id.trackComment)
@@ -92,6 +96,29 @@ class TracksFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun calculateDistanceKm(pointsJson: String): Double {
+        try {
+            val arr = JSONArray(pointsJson)
+            if (arr.length() < 2) return 0.0
+
+            var totalMeters = 0.0
+            for (i in 1 until arr.length()) {
+                val prev = arr.getJSONArray(i - 1)
+                val curr = arr.getJSONArray(i)
+                val results = FloatArray(1)
+                Location.distanceBetween(
+                    prev.getDouble(0), prev.getDouble(1),
+                    curr.getDouble(0), curr.getDouble(1),
+                    results
+                )
+                totalMeters += results[0]
+            }
+            return totalMeters / 1000.0
+        } catch (e: Exception) {
+            return 0.0
+        }
     }
 
     override fun onDestroyView() {

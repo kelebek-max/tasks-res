@@ -17,13 +17,23 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/trackDistance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0.0 км"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp" />
+
+    <TextView
         android:id="@+id/trackPointsCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="100 точек"
         android:textColor="?attr/colorOnSurfaceVariant"
         android:textSize="14sp"
-        android:layout_marginTop="4dp" />
+        android:layout_marginTop="2dp" />
 
     <TextView
         android:id="@+id/trackComment"
