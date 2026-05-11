@@ -8,7 +8,7 @@
     android:layout_marginBottom="8dp">
 
     <TextView
-        android:id="@+id/track_date"
+        android:id="@+id/trackDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="01.01.2024 12:00"
@@ -17,12 +17,22 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/track_points_count"
+        android:id="@+id/trackPointsCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="100 точек"
         android:textColor="?attr/colorOnSurfaceVariant"
         android:textSize="14sp"
         android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/trackComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:textSize="13sp"
+        android:textStyle="italic"
+        android:layout_marginTop="4dp"
+        android:visibility="gone" />
 
 </LinearLayout>

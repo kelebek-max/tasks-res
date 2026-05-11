@@ -19,7 +19,7 @@
             android:background="?attr/colorPrimaryContainer">
 
             <TextView
-                android:id="@+id/total_tracks_label"
+                android:id="@+id/totalTracksLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -28,7 +28,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/total_tracks_value"
+                android:id="@+id/totalTracksValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -39,7 +39,7 @@
 
         <!-- List Container -->
         <LinearLayout
-            android:id="@+id/tracks_list_container"
+            android:id="@+id/tracksListContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -47,7 +47,7 @@
 
             <!-- Empty state -->
             <TextView
-                android:id="@+id/empty_state_text"
+                android:id="@+id/emptyStateText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="История треков пуста"

@@ -10,11 +10,14 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class TrackEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = System.currentTimeMillis(),
-    
+    val id: Long = 0,
+
     @ColumnInfo(name = "points_json")
     val pointsJson: String,
-    
+
     @ColumnInfo(name = "start_time")
-    val startTime: Long = System.currentTimeMillis()
+    val startTime: Long = System.currentTimeMillis(),
+
+    @ColumnInfo(name = "comment")
+    val comment: String = ""
 ) : Parcelable

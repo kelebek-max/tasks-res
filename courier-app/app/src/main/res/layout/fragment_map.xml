@@ -13,9 +13,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Панель отображения скорости -->
     <TextView
-        android:id="@+id/tv_speed"
+        android:id="@+id/tvSpeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0 км/ч"
@@ -30,9 +29,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Кнопка добавления комментария -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add_comment"
+        android:id="@+id/fabAddComment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -42,12 +40,11 @@
         app:tint="?attr/colorPrimary"
         app:fabSize="normal"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/fab_my_location"
+        app:layout_constraintBottom_toTopOf="@id/fabMyLocation"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Кнопка центрирования геолокации -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_my_location"
+        android:id="@+id/fabMyLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -56,13 +53,12 @@
         app:backgroundTint="?attr/colorSurface"
         app:tint="?attr/colorPrimary"
         app:fabSize="normal"
-        app:layout_constraintTop_toBottomOf="@id/fab_add_comment"
+        app:layout_constraintTop_toBottomOf="@id/fabAddComment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Кнопка сброса и начала нового трека -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_start_track"
+        android:id="@+id/fabStartTrack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -71,7 +67,7 @@
         app:backgroundTint="?attr/colorSurface"
         app:tint="?attr/colorPrimary"
         app:fabSize="normal"
-        app:layout_constraintTop_toBottomOf="@id/fab_my_location"
+        app:layout_constraintTop_toBottomOf="@id/fabMyLocation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
