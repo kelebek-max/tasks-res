@@ -3,6 +3,7 @@
     <string name="app_name">Курьер</string>
     <string name="nav_map">Карта</string>
     <string name="nav_profile">Профиль</string>
+    <string name="nav_tracks">История треков</string>
     <string name="profile_title">Профиль</string>
     <string name="courier_name">Иван Петров</string>
     <string name="courier_role">Курьер</string>

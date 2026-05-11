@@ -1,0 +1,106 @@
+[
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_avatar_bg.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/avatar_bg.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.courier.app-main-46:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_ic_stop_track.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/ic_stop_track.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.courier.app-main-46:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_ic_profile.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/ic_profile.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.courier.app-main-46:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.courier.app-main-46:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/layout_activity_main.xml.flat",
+        "source": "com.courier.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/color_bottom_nav_color.xml.flat",
+        "source": "com.courier.app-main-46:/color/bottom_nav_color.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/layout_fragment_map.xml.flat",
+        "source": "com.courier.app-main-46:/layout/fragment_map.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/layout_fragment_profile.xml.flat",
+        "source": "com.courier.app-main-46:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_ic_start_track.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/ic_start_track.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_ic_map.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/ic_map.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_ic_delivery_active.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/ic_delivery_active.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_ic_comment.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/ic_comment.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/layout_fragment_comment_sheet.xml.flat",
+        "source": "com.courier.app-main-46:/layout/fragment_comment_sheet.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/layout_fragment_tracks.xml.flat",
+        "source": "com.courier.app-main-46:/layout/fragment_tracks.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.courier.app-main-46:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/layout_item_track.xml.flat",
+        "source": "com.courier.app-main-46:/layout/item_track.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_ic_history.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/ic_history.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_ic_my_location.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/ic_my_location.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_ic_delivery_point.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/ic_delivery_point.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_speed_overlay_bg.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/speed_overlay_bg.xml"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.courier.app-main-46:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.courier.app-main-46:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.courier.app-merged_res-44:/drawable_ic_delivery_done.xml.flat",
+        "source": "com.courier.app-main-46:/drawable/ic_delivery_done.xml"
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.courier.app-mergeDebugResources-43:/layout/activity_main.xml",
+        "source": "com.courier.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.courier.app-mergeDebugResources-43:/layout/item_track.xml",
+        "source": "com.courier.app-main-46:/layout/item_track.xml"
+    },
+    {
+        "merged": "com.courier.app-mergeDebugResources-43:/layout/fragment_tracks.xml",
+        "source": "com.courier.app-main-46:/layout/fragment_tracks.xml"
+    },
+    {
+        "merged": "com.courier.app-mergeDebugResources-43:/layout/fragment_profile.xml",
+        "source": "com.courier.app-main-46:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.courier.app-mergeDebugResources-43:/layout/fragment_comment_sheet.xml",
+        "source": "com.courier.app-main-46:/layout/fragment_comment_sheet.xml"
+    },
+    {
+        "merged": "com.courier.app-mergeDebugResources-43:/layout/fragment_map.xml",
+        "source": "com.courier.app-main-46:/layout/fragment_map.xml"
+    }
+]
