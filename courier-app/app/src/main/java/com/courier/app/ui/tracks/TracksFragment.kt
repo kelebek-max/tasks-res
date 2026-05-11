@@ -1,5 +1,6 @@
 package com.courier.app.ui.tracks
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.courier.app.data.model.TrackEntity
 import com.courier.app.databinding.FragmentTracksBinding
 import kotlinx.coroutines.launch
 import android.location.Location
+import com.courier.app.ui.trackmap.TrackMapActivity
 import org.json.JSONArray
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -93,6 +95,14 @@ class TracksFragment : Fragment() {
             commentView.visibility = View.VISIBLE
         } else {
             commentView.visibility = View.GONE
+        }
+
+        view.setOnClickListener {
+            val intent = Intent(requireContext(), TrackMapActivity::class.java).apply {
+                putExtra(TrackMapActivity.EXTRA_POINTS_JSON, track.pointsJson)
+                putExtra(TrackMapActivity.EXTRA_START_TIME, track.startTime)
+            }
+            startActivity(intent)
         }
 
         return view
