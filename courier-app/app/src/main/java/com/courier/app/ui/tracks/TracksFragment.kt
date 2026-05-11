@@ -6,14 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.courier.app.R
+import com.courier.app.data.api.TrackUploadService
 import com.courier.app.data.database.TrackDatabase
 import com.courier.app.data.model.TrackEntity
 import com.courier.app.databinding.FragmentTracksBinding
+import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 import android.location.Location
 import com.courier.app.ui.trackmap.TrackMapActivity
@@ -105,6 +108,11 @@ class TracksFragment : Fragment() {
             startActivity(intent)
         }
 
+        val uploadButton = view.findViewById<MaterialButton>(R.id.btnUploadTrack)
+        uploadButton.setOnClickListener {
+            uploadTrack(track, uploadButton)
+        }
+
         return view
     }
 
@@ -128,6 +136,31 @@ class TracksFragment : Fragment() {
             return totalMeters / 1000.0
         } catch (e: Exception) {
             return 0.0
+        }
+    }
+
+    private fun uploadTrack(track: TrackEntity, button: MaterialButton) {
+        button.isEnabled = false
+        button.text = "Выгрузка..."
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            val result = TrackUploadService.uploadTrack(
+                trackId = track.id,
+                pointsJson = track.pointsJson,
+                startTime = track.startTime,
+                comment = track.comment
+            )
+            result.onSuccess {
+                button.text = "Выгружено"
+            }.onFailure {
+                button.isEnabled = true
+                button.text = "Выгрузить"
+                Toast.makeText(
+                    requireContext(),
+                    "Ошибка выгрузки: ${it.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 

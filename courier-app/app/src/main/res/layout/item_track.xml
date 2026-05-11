@@ -45,4 +45,13 @@
         android:layout_marginTop="4dp"
         android:visibility="gone" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUploadTrack"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
+        android:text="Выгрузить"
+        android:textSize="12sp" />
+
 </LinearLayout>
