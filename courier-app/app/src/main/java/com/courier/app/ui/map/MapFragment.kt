@@ -309,7 +309,7 @@ class MapFragment : Fragment() {
                 result.lastLocation?.let { location ->
                     val currentPoint = GeoPoint(location.latitude, location.longitude)
                     updateSpeed(location)
-                    updateLocationOnMap(currentPoint)
+                    updateLocationOnMap(currentPoint, location.bearing)
                     fetchDeliveryPointsIfNeeded(currentPoint)
                 }
             }
@@ -387,18 +387,21 @@ class MapFragment : Fragment() {
         }
     }
 
-    private fun updateLocationOnMap(point: GeoPoint) {
+    private fun updateLocationOnMap(point: GeoPoint, bearing: Float = 0f) {
         if (locationMarker == null) {
             locationMarker = Marker(binding.mapView).apply {
                 setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER)
                 title = "Вы здесь"
-                icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_my_location)
+                icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_navigation_arrow)
+                setInfoWindow(null)
             }
             binding.mapView.overlays.add(locationMarker)
         }
         locationMarker?.position = point
+        locationMarker?.rotation = -bearing
 
         binding.mapView.controller.animateTo(point)
+        binding.mapView.invalidate()
 
         if (isRecordingTrack) {
             trackPoints.add(point)
