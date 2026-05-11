@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.courier.app.databinding.ActivityTrackMapBinding
 import org.json.JSONArray
-import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.BoundingBox
 import org.osmdroid.util.GeoPoint
@@ -31,8 +30,6 @@ class TrackMapActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.toolbar.setNavigationOnClickListener { finish() }
-
-        Configuration.getInstance().userAgentValue = packageName
 
         binding.trackMapView.setTileSource(TileSourceFactory.MAPNIK)
         binding.trackMapView.setMultiTouchControls(true)
