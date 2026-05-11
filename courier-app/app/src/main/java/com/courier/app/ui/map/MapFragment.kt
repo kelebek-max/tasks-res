@@ -415,23 +415,24 @@ class MapFragment : Fragment() {
             return
         }
 
-        val distanceMeters = lastLocationPoint!!.distanceToAsDouble(
-            GeoPoint(location.latitude, location.longitude)
-        )
-
+        val currentPoint = GeoPoint(location.latitude, location.longitude)
+        val distanceMeters = lastLocationPoint!!.distanceToAsDouble(currentPoint)
         val timeDiffSeconds = (currentTime - lastLocationTime) / 1000.0
 
-        if (timeDiffSeconds > 0.5 && distanceMeters > 1) {
-            val speedMs = distanceMeters / timeDiffSeconds
-            val speedKmh = speedMs * 3.6
+        if (timeDiffSeconds < 1.0) return
 
-            activity?.runOnUiThread {
-                binding.tvSpeed.text = String.format("%.0f км/ч", speedKmh)
-            }
+        val speedKmh = if (distanceMeters > 5 && location.accuracy < 20) {
+            (distanceMeters / timeDiffSeconds) * 3.6
+        } else {
+            0.0
+        }
+
+        activity?.runOnUiThread {
+            binding.tvSpeed.text = String.format("%.0f км/ч", speedKmh)
         }
 
         lastLocationTime = currentTime
-        lastLocationPoint = GeoPoint(location.latitude, location.longitude)
+        lastLocationPoint = currentPoint
     }
 
     private fun updateTrackLine() {
