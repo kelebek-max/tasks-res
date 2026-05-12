@@ -8,9 +8,11 @@ export default function ChatArea({ activeChannel, wsMessages }) {
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
   const chatAreaRef = useRef(null);
+  const isChannelSwitch = useRef(true);
 
   useEffect(() => {
     let cancelled = false;
+    isChannelSwitch.current = true;
     setLoading(true);
     fetchMessages(activeChannel).then(({ messages: msgs }) => {
       if (!cancelled) {
@@ -34,7 +36,12 @@ export default function ChatArea({ activeChannel, wsMessages }) {
 
   useEffect(() => {
     if (chatEndRef.current) {
-      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+      if (isChannelSwitch.current) {
+        chatEndRef.current.scrollIntoView({ behavior: 'instant' });
+        isChannelSwitch.current = false;
+      } else {
+        chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }, [messages]);
 
