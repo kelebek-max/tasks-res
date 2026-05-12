@@ -1,121 +1,137 @@
+const activityCards = [
+  {
+    user: 'спиркидирк',
+    avatar: 'https://i.pravatar.cc/80?img=68',
+    game: 'Dota 2',
+    detail: '🎮 1d ago',
+    gameIcon: 'https://cdn.cloudflare.steamstatic.com/steam/apps/570/capsule_184x69.jpg',
+  },
+  {
+    user: 'спиркидирк',
+    avatar: 'https://i.pravatar.cc/80?img=68',
+    game: 'Deadlock',
+    detail: 'Most played: 34h',
+    gameIcon: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1422450/capsule_184x69.jpg',
+  },
+];
+
 const memberGroups = [
   {
-    title: 'STAFF',
-    emoji: '🔧',
-    count: 1,
+    title: 'котики :3',
+    count: 5,
     members: [
       {
-        name: 'Max',
-        isBot: true,
-        avatar: 'https://i.pravatar.cc/80?img=68',
-        status: 'online',
-        activity: 'Playing DM to Contact Staffs',
-      },
-    ],
-  },
-  {
-    title: 'COMMUNITY HELPER',
-    emoji: '❤️',
-    count: 1,
-    members: [
-      {
-        name: 'Eve',
-        isBot: true,
-        avatar: 'https://i.pravatar.cc/80?img=47',
-        status: 'online',
-        activity: '',
-      },
-    ],
-  },
-  {
-    title: 'POSTGRADUATE',
-    emoji: '💎',
-    count: 28,
-    members: [
-      {
-        name: '[A] Советская физик...',
+        name: 'борисжа',
         avatar: 'https://i.pravatar.cc/80?img=12',
         status: 'online',
-        activity: 'sheep is life, sheep is love',
         nameColor: '#e74c3c',
       },
       {
-        name: '_PeterHealy',
-        flag: '🇮🇪',
-        flagText: 'IE',
+        name: 'paanikaameow',
         avatar: 'https://i.pravatar.cc/80?img=33',
         status: 'online',
         nameColor: '#3498db',
       },
       {
-        name: 'AliPal',
-        flag: '🇿🇦',
-        flagText: 'ZA',
+        name: 'psychopathy',
         avatar: 'https://i.pravatar.cc/80?img=15',
-        status: 'idle',
-        activity: '✨',
+        status: 'online',
         nameColor: '#e67e22',
+        activity: '🎵 https://www.twitch.tv/sk8sex...',
       },
       {
-        name: 'Astroman',
-        flag: '🇧🇪',
-        flagText: 'BE',
+        name: 'Дву рожк',
         avatar: 'https://i.pravatar.cc/80?img=59',
         status: 'online',
-        activity: 'Babies are stored in the moust...',
         nameColor: '#e91e63',
+        activity: '🟠 b z h y b z h a',
       },
       {
-        name: 'AtmosChem',
-        flag: '🇺🇸',
-        flagText: 'US',
+        name: 'коты',
         avatar: 'https://i.pravatar.cc/80?img=51',
         status: 'online',
         nameColor: '#9b59b6',
       },
+    ],
+  },
+  {
+    title: 'Online',
+    count: 5,
+    members: [
       {
-        name: 'blindpyro',
-        flag: '🇺🇸',
-        flagText: 'US',
+        name: 'Cyberdroch',
         avatar: 'https://i.pravatar.cc/80?img=22',
         status: 'online',
-        activity: '🎵',
-        nameColor: '#2ecc71',
+        nameColor: '#dbdee1',
       },
       {
-        name: 'Captain HIVE',
-        flag: '🇨🇦',
-        flagText: 'CA',
+        name: 'FredBoat♪',
         avatar: 'https://i.pravatar.cc/80?img=60',
         status: 'online',
-        activity: 'Playing Rainbow Six Siege 🎮',
-        nameColor: '#e74c3c',
+        nameColor: '#dbdee1',
+        tag: 'APP',
+        tagColor: '#5865f2',
+        activity: 'music | /help',
       },
       {
-        name: 'Dusto',
-        flag: '🇺🇸',
-        flagText: 'US',
+        name: 'maexxe',
         avatar: 'https://i.pravatar.cc/80?img=7',
         status: 'online',
-        activity: 'Bonjour',
-        nameColor: '#1abc9c',
+        nameColor: '#dbdee1',
       },
       {
-        name: 'encephalic',
-        flag: '🇳🇴',
-        flagText: 'NO',
+        name: '♡yunochi♡',
         avatar: 'https://i.pravatar.cc/80?img=14',
-        status: 'dnd',
-        activity: '🔴 Now Dr. Enc',
-        nameColor: '#e67e22',
+        status: 'online',
+        nameColor: '#dbdee1',
+        tag: 'HATO',
+        tagColor: '#ed4245',
       },
       {
-        name: 'Euthii',
-        flag: '🇺🇸',
-        flagText: 'US',
+        name: '🐱immortalfox',
         avatar: 'https://i.pravatar.cc/80?img=42',
         status: 'online',
-        nameColor: '#3498db',
+        nameColor: '#dbdee1',
+        tag: 'FOX',
+        tagColor: '#e67e22',
+        activity: '🎮 Escape from Tarkov •...',
+      },
+    ],
+  },
+  {
+    title: 'Offline',
+    count: 44,
+    isOffline: true,
+    members: [
+      {
+        name: 'Aa',
+        avatar: 'https://i.pravatar.cc/80?img=1',
+        status: 'offline',
+        nameColor: '#949ba4',
+      },
+      {
+        name: 'Agatha Kazar',
+        avatar: 'https://i.pravatar.cc/80?img=2',
+        status: 'offline',
+        nameColor: '#949ba4',
+      },
+      {
+        name: 'Astolfo',
+        avatar: 'https://i.pravatar.cc/80?img=3',
+        status: 'offline',
+        nameColor: '#949ba4',
+      },
+      {
+        name: 'batiks',
+        avatar: 'https://i.pravatar.cc/80?img=4',
+        status: 'offline',
+        nameColor: '#949ba4',
+      },
+      {
+        name: 'bleckmen',
+        avatar: 'https://i.pravatar.cc/80?img=6',
+        status: 'offline',
+        nameColor: '#949ba4',
       },
     ],
   },
@@ -124,13 +140,36 @@ const memberGroups = [
 export default function MembersSidebar() {
   return (
     <div className="members-sidebar">
+      {/* Activity section */}
+      <div className="activity-section">
+        <div className="activity-header">
+          Activity — {activityCards.length} ⚙
+        </div>
+        {activityCards.map((card, idx) => (
+          <div key={idx} className="activity-card">
+            <div className="activity-card-icon">
+              <img src={card.avatar} alt={card.user} />
+            </div>
+            <div className="activity-card-info">
+              <div className="activity-card-user">{card.user}</div>
+              <div className="activity-card-game">{card.game}</div>
+              <div className="activity-card-detail">{card.detail}</div>
+            </div>
+            <div className="activity-card-game-icon">
+              <img src={card.gameIcon} alt={card.game} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Member groups */}
       {memberGroups.map((group) => (
         <div key={group.title} className="members-category">
           <div className="members-category-title">
-            {group.title} {group.emoji} — {group.count}
+            {group.title} — {group.count}
           </div>
           {group.members.map((member, idx) => (
-            <div key={idx} className="member-item">
+            <div key={idx} className={`member-item${group.isOffline ? ' offline' : ''}`}>
               <div className="member-avatar-container">
                 <div className="member-avatar">
                   <img src={member.avatar} alt={member.name} />
@@ -138,12 +177,14 @@ export default function MembersSidebar() {
                 <div className={`member-status-dot ${member.status}`} />
               </div>
               <div className="member-info">
-                <div className="member-name" style={{ color: member.nameColor || '#f2f3f5' }}>
+                <div className="member-name" style={{ color: member.nameColor }}>
                   {member.name}
-                  {member.isBot && <span className="message-bot-tag" style={{ marginLeft: '4px', fontSize: '9px' }}>BOT</span>}
-                  {member.flagText && (
-                    <span className="flag" style={{ color: '#949ba4', fontWeight: 600, fontSize: '11px' }}>
-                      {' '}- <span style={{ textTransform: 'uppercase', letterSpacing: '0.5px' }}>{member.flagText}</span>
+                  {member.tag && (
+                    <span
+                      className="member-tag"
+                      style={{ background: member.tagColor }}
+                    >
+                      ✓ {member.tag}
                     </span>
                   )}
                 </div>

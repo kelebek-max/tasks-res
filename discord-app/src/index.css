@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,11 +7,13 @@
 }
 
 body {
-  font-family: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: #313338;
   color: #dbdee1;
   overflow: hidden;
   height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -21,13 +25,16 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #2b2d31;
-  border-radius: 4px;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: #1a1b1e;
   border-radius: 4px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #141517;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }

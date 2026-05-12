@@ -7,7 +7,7 @@ import { connectWebSocket } from './services/mockWebSocket'
 import './App.css'
 
 function App() {
-  const [activeChannel, setActiveChannel] = useState('technology')
+  const [activeChannel, setActiveChannel] = useState('trashbin')
   const [wsMessages, setWsMessages] = useState([])
 
   useEffect(() => {
