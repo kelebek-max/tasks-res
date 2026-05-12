@@ -96,15 +96,26 @@ export default function ChatArea({ activeChannel, wsMessages }) {
   }, [wsMessages, activeChannel]);
 
   useEffect(() => {
-    if (chatEndRef.current) {
-      if (isChannelSwitch.current) {
-        chatEndRef.current.scrollIntoView({ behavior: 'instant' });
-        isChannelSwitch.current = false;
-      } else {
-        chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
-      }
+    if (!chatEndRef.current) return;
+    if (isChannelSwitch.current) {
+      requestAnimationFrame(() => {
+        chatEndRef.current?.scrollIntoView({ behavior: 'instant' });
+      });
+      isChannelSwitch.current = false;
+    } else {
+      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
+
+  const handleImageLoad = () => {
+    if (chatAreaRef.current) {
+      const el = chatAreaRef.current;
+      const isNearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 200;
+      if (isNearBottom) {
+        chatEndRef.current?.scrollIntoView({ behavior: 'instant' });
+      }
+    }
+  };
 
   const handleSend = async () => {
     const text = inputValue.trim();
@@ -202,7 +213,7 @@ export default function ChatArea({ activeChannel, wsMessages }) {
                     </div>
                     {msg.embed.image && (
                       <div className="embed-image">
-                        <img src={msg.embed.image} alt="embed" />
+                        <img src={msg.embed.image} alt="embed" onLoad={handleImageLoad} />
                       </div>
                     )}
                   </div>
