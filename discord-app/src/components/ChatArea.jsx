@@ -1,67 +1,70 @@
-const channelData = {
-  technology: {
-    topic: '🚂 Board the train to travel to the Technology Department.',
-    welcome: {
-      title: 'Welcome to #technology！',
-      titleEmoji: '📺',
-      description:
-        'This is the start of the #technology！ 📺 channel. 🚂 Board the train to travel to the Technology Department.',
-    },
-    messages: [
-      {
-        id: 1,
-        author: 'Eve',
-        authorColor: '#e74c3c',
-        isBot: true,
-        avatar: 'https://i.pravatar.cc/80?img=47',
-        timestamp: '09/14/2019',
-        embed: {
-          color: '#23a559',
-          authorIcon: '🌐',
-          authorName: '',
-          title: 'Department of Technology',
-          description:
-            'This channel provides exclusive contents for everything regarding technology.',
-          image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=280&fit=crop',
-        },
-      },
-    ],
-  },
-  community: {
-    topic: 'Welcome to the community!',
-    welcome: {
-      title: 'Welcome to #community！',
-      titleEmoji: '',
-      description: 'This is the start of the #community channel.',
-    },
-    messages: [],
-  },
-};
+import { useState, useEffect, useRef } from 'react';
+import { channelTopics, currentUser } from '../data/mockMessages';
+import { fetchMessages, sendMessage } from '../services/api';
 
-const defaultChannel = {
-  topic: '',
-  welcome: {
-    title: 'Welcome!',
-    titleEmoji: '',
-    description: 'This is the start of the channel.',
-  },
-  messages: [],
-};
+export default function ChatArea({ activeChannel, wsMessages }) {
+  const [messages, setMessages] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+  const [loading, setLoading] = useState(false);
+  const chatEndRef = useRef(null);
+  const chatAreaRef = useRef(null);
 
-export default function ChatArea({ activeChannel }) {
-  const data = channelData[activeChannel] || defaultChannel;
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    fetchMessages(activeChannel).then(({ messages: msgs }) => {
+      if (!cancelled) {
+        setMessages(msgs);
+        setLoading(false);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [activeChannel]);
+
+  useEffect(() => {
+    if (wsMessages.length === 0) return;
+    const last = wsMessages[wsMessages.length - 1];
+    if (last.channel === activeChannel) {
+      setMessages((prev) => {
+        if (prev.some((m) => m.id === last.message.id)) return prev;
+        return [...prev, last.message];
+      });
+    }
+  }, [wsMessages, activeChannel]);
+
+  useEffect(() => {
+    if (chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
+
+  const handleSend = async () => {
+    const text = inputValue.trim();
+    if (!text) return;
+    setInputValue('');
+    const msg = await sendMessage(activeChannel, text, currentUser);
+    setMessages((prev) => [...prev, msg]);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
+
+  const topic = channelTopics[activeChannel] || '';
 
   return (
     <div className="main-content">
-      {/* Header */}
       <div className="chat-header">
         <span className="chat-header-hash">#</span>
         <span className="chat-header-name">{activeChannel}</span>
         {activeChannel === 'technology' && <span className="chat-header-emoji">📺</span>}
-        {data.topic && (
+        {topic && (
           <>
             <div className="chat-header-divider" />
-            <span className="chat-header-topic">{data.topic}</span>
+            <span className="chat-header-topic">{topic}</span>
           </>
         )}
         <div className="chat-header-tools">
@@ -77,18 +80,20 @@ export default function ChatArea({ activeChannel }) {
         </div>
       </div>
 
-      {/* Chat messages */}
-      <div className="chat-area">
+      <div className="chat-area" ref={chatAreaRef}>
         <div className="welcome-section">
           <div className="welcome-hash-icon">#</div>
-          <h1 className="welcome-title">
-            {data.welcome.title} {data.welcome.titleEmoji && <span>{data.welcome.titleEmoji}</span>}{' '}
-            ！
-          </h1>
-          <p className="welcome-description">{data.welcome.description}</p>
+          <h1 className="welcome-title">Welcome to #{activeChannel}！</h1>
+          <p className="welcome-description">
+            This is the start of the #{activeChannel} channel. {topic}
+          </p>
         </div>
 
-        {data.messages.map((msg) => (
+        {loading && (
+          <div className="loading-messages">Loading messages...</div>
+        )}
+
+        {messages.map((msg) => (
           <div key={msg.id} className="message">
             <div className="message-avatar">
               <img src={msg.avatar} alt={msg.author} />
@@ -124,20 +129,22 @@ export default function ChatArea({ activeChannel }) {
             </div>
           </div>
         ))}
+        <div ref={chatEndRef} />
       </div>
 
-      {/* Message input */}
       <div className="message-input-container">
         <div className="message-input">
           <span className="input-icon-btn">⊕</span>
           <input
             className="message-input-field"
             type="text"
-            placeholder={`Message #${activeChannel}！ 📺`}
-            readOnly
+            placeholder={`Message #${activeChannel}`}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
           <span className="input-icon-btn">🎁</span>
-          <span className="input-icon-btn">GIF</span>
+          <span className="input-icon-btn" style={{ fontWeight: 700, fontSize: '16px' }}>GIF</span>
           <span className="input-icon-btn">😀</span>
         </div>
       </div>
