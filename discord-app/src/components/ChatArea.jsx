@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { channelTopics, currentUser } from '../data/mockMessages';
 import { fetchMessages, sendMessage } from '../services/api';
 
@@ -61,6 +61,44 @@ const StickerIcon = () => (
     <path d="M12.0002 0.00195312C5.3752 0.00195312 0.000195312 5.37695 0.000195312 12.002C0.000195312 18.627 5.3752 24.002 12.0002 24.002C18.6252 24.002 24.0002 18.627 24.0002 12.002C24.0002 5.37695 18.6252 0.00195312 12.0002 0.00195312ZM8.21919 7.00195C9.06919 7.00195 9.75919 7.69195 9.75919 8.54195C9.75919 9.39195 9.06919 10.082 8.21919 10.082C7.36919 10.082 6.67919 9.39195 6.67919 8.54195C6.67919 7.69195 7.36919 7.00195 8.21919 7.00195ZM18.0002 13.002C18.0002 16.317 15.3152 19.002 12.0002 19.002C8.6852 19.002 6.0002 16.317 6.0002 13.002H18.0002ZM15.7812 10.082C14.9312 10.082 14.2412 9.39195 14.2412 8.54195C14.2412 7.69195 14.9312 7.00195 15.7812 7.00195C16.6312 7.00195 17.3212 7.69195 17.3212 8.54195C17.3212 9.39195 16.6312 10.082 15.7812 10.082Z" />
   </svg>
 );
+
+const EMBED_IMG_WIDTH = 400;
+const EMBED_IMG_HEIGHT = 225;
+
+function EmbedImage({ src, onLoad }) {
+  const [loaded, setLoaded] = useState(false);
+
+  const handleLoad = () => {
+    setLoaded(true);
+    if (onLoad) onLoad();
+  };
+
+  return (
+    <div
+      className="embed-image"
+      style={{ width: EMBED_IMG_WIDTH, height: EMBED_IMG_HEIGHT, position: 'relative' }}
+    >
+      {!loaded && (
+        <div
+          className="embed-image-skeleton"
+          style={{ width: EMBED_IMG_WIDTH, height: EMBED_IMG_HEIGHT }}
+        />
+      )}
+      <img
+        src={src}
+        alt="embed"
+        onLoad={handleLoad}
+        style={{
+          width: EMBED_IMG_WIDTH,
+          height: EMBED_IMG_HEIGHT,
+          objectFit: 'cover',
+          display: loaded ? 'block' : 'none',
+          borderRadius: '0 0 4px 0',
+        }}
+      />
+    </div>
+  );
+}
 
 export default function ChatArea({ activeChannel, wsMessages }) {
   const [messages, setMessages] = useState([]);
@@ -212,9 +250,7 @@ export default function ChatArea({ activeChannel, wsMessages }) {
                       <div className="embed-description">{msg.embed.description}</div>
                     </div>
                     {msg.embed.image && (
-                      <div className="embed-image">
-                        <img src={msg.embed.image} alt="embed" onLoad={handleImageLoad} />
-                      </div>
+                      <EmbedImage src={msg.embed.image} onLoad={handleImageLoad} />
                     )}
                   </div>
                 )}
