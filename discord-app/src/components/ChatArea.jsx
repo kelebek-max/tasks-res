@@ -73,6 +73,7 @@ export default function ChatArea({ activeChannel, wsMessages }) {
   useEffect(() => {
     let cancelled = false;
     isChannelSwitch.current = true;
+    setMessages([]);
     setLoading(true);
     fetchMessages(activeChannel).then(({ messages: msgs }) => {
       if (!cancelled) {

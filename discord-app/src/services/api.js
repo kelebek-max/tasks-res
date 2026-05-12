@@ -20,7 +20,7 @@ function formatTimestamp() {
 }
 
 export async function fetchMessages(channel) {
-  await delay(200 + Math.random() * 300);
+  await delay(0);
   if (!store[channel]) {
     store[channel] = [];
   }
